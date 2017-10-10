@@ -12,15 +12,6 @@ R Bar Schedule:
 
 # Week 1 - The Basics
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```{r setup]
-
-library(learnr)
-knitr::opts_chunk$set(echo = FALSE)
-
-```
-
 ## Downloading and Installing R
 
 ### Requirments:
@@ -40,22 +31,8 @@ You will need to things:
 
 Data has different types in R, and the datat type influence the operations and functions you can perform on it:
 
-
 Type | Example | Uses
 -----|---------|---------
 Logical | TRUE, FALSE | 10 > 8 = TRUE
 Numeric | 1, 43.1, 532.37 | 2 + 2 = 4
 Character | "Hello", "Goodbye" | 'This is a string'
-
-#### Practice:
-
-below is some space to practice the operations, when you have written your operation click 'Run Code' or 'Start Over'
-
-```{r basic_operations, exercise=TRUE, exercise.lines = 10}
-
-
-
-
-
-
-```
