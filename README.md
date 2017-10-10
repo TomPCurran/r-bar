@@ -10,6 +10,23 @@ R Bar Schedule:
 
 - **Fridays**: 1:00 - 3:00, Room 140 B (On the first floor)
 
+## Sign in Sheet
+
+[Sign in Sheet During R Bar Sessions](https://docs.google.com/forms/d/e/1FAIpQLSczAozxtqX3nLecB4d0n_Ywl5JedqtrsFSxL-m-Y4hM3V_n3Q/viewform?usp=sf_link)
+
+## Feedback form
+
+[Feed Back Form](https://docs.google.com/forms/d/e/1FAIpQLScyjSbVxJxHKeR6amIiBdLE_2kFmlS2NQ96Je4rGzPKDgCSFA/viewform?usp=sf_link)
+
+## Slack
+
+Slack is a great way to keep update to date with the latest news. Join the Harris slack group 'Harristas' today!
+
+[Slack Downloand](https://slack.com/)
+
+Channel: r_bar
+
+
 # Week 1 - The Basics
 
 ## Downloading and Installing R
@@ -53,3 +70,15 @@ Integer Division | %/% | 5 %/% 2 | 1
 Modulus returns the remainder and integer division returns the result of division without the remainder
 
 R follows normal order of operations - remember PEMDAS
+
+## Declaring Variables:
+
+Now that we know how to do some basic operations, we can learn how to store information for later use.
+
+storing the information is simple: using `<-` is the assignment operation, the variable name goes on the left and the value you want to save goes on the right:
+
+` x <- 2 + 2 `
+
+` hello <- "Hello, world!" `
+
+Variable names should be unique. If I repeat a variable name the most recent assingment of that variable will be the one used in proceeding operations where the variable is called. 
