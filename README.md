@@ -1,8 +1,14 @@
-## Welcome to GitHub Pages
+# R Bar at The Universtiy of Chicago Harris School of Public Policy
 
-You can use the [editor on GitHub](https://github.com/TCurran4589/r-bar/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+R Bar is designed for everyone at Harris, whether you're just starting out in R or are here to learn some new things!
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Over the course of your time at Harris you will find R to be a very useful tool for your classes, personal and personal projects. We will be hosting R Bar sessions twice a week and twice during lunch sessions for the first quarter. 
+
+R Bar Schedule: 
+
+Mondays: 4:30 - 6:30, Room 344 (The NORC Conference room on the third floor)
+
+Fridays: 1:00 - 3:00, Room 140 B (On the first floor)
 
 ### Markdown
 
