@@ -1,0 +1,12 @@
+name: Week_1
+title: Week_1
+username:
+account: tomcurranuchicago
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 223014
+bundleId: 1016225
+url: https://tomcurranuchicago.shinyapps.io/Week_1/
+when: 1507481272.25491
+asMultiple: FALSE
+asStatic: FALSE

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+<meta name="progressive" content="false" />
+<meta name="allow-skip" content="false" />
+
+<title>Week 1 - The Basics</title>
+
+
+<!-- highlightjs -->
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
+}
+</script>
+
+
+
+</head>
+
+<body>
+
+
+
+<div class="pageContent band">
+<div class="bandContent page">
+
+<div class="topics">
+
+<div id="section-downloading-and-installing-r" class="section level2">
+<h2>Downloading and Installing R</h2>
+<div id="section-requirments" class="section level3">
+<h3>Requirments:</h3>
+<p>Make sure that your computer is updated to the latest version of the operating system</p>
+<p>If you don’t update your computer you could run into installation issues:</p>
+<p>You will need to things:</p>
+<ol style="list-style-type: decimal">
+<li><p>R - the actual language that you use <a href="https://www.r-project.org/">here</a></p></li>
+<li><p>RStudio - the development environment, the main tool for R <a href="https://www.rstudio.com/products/rstudio/download/">here</a></p></li>
+</ol>
+</div>
+</div>
+<div id="section-data-types-in-r" class="section level2">
+<h2>Data Types in R:</h2>
+<p>Data has different types in R, and the datat type influence the operations and functions you can perform on it:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>Example</th>
+<th>Uses</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Logical</td>
+<td>TRUE, FALSE</td>
+<td>10 &gt; 8 = TRUE</td>
+</tr>
+<tr class="even">
+<td>Numeric</td>
+<td>1, 43.1, 532.37</td>
+<td>2 + 2 = 4</td>
+</tr>
+<tr class="odd">
+<td>Character</td>
+<td>“Hello”, “Goodbye”</td>
+<td>‘This is a string’</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="section-basic-operations-in-r" class="section level2">
+<h2>Basic Operations in R</h2>
+Basic operations:
+<center>
+<table>
+<thead>
+<tr class="header">
+<th>Operation</th>
+<th>Symbol</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Addition</td>
+<td>+</td>
+<td>2 + 2</td>
+</tr>
+<tr class="even">
+<td>Subtraction</td>
+<td>-</td>
+<td>3 - 2</td>
+</tr>
+<tr class="odd">
+<td>Division</td>
+<td>/</td>
+<td>4 / 2</td>
+</tr>
+<tr class="even">
+<td>Multiplication</td>
+<td>*</td>
+<td>2 * 2</td>
+</tr>
+<tr class="odd">
+<td>Exponentiation</td>
+<td>^ or **</td>
+<td>2 ^ 2 or 2**2</td>
+</tr>
+<tr class="even">
+<td>Modulus</td>
+<td>%%</td>
+<td>4 %% 2</td>
+</tr>
+<tr class="odd">
+<td>Integer Division</td>
+<td>%/%</td>
+<td>5 %/% 2</td>
+</tr>
+</tbody>
+</table>
+</center>
+<p>Modulus returns the remainder and integer division returns the result of division without the remainder</p>
+<p>R follows normal order of operations - remember PEMDAS</p>
+<div id="section-practice" class="section level4">
+<h4>Practice:</h4>
+<p>below is some space to practice the operations, when you have written your operation click ‘Run Code’ or ‘Start Over’</p>
+<div class="tutorial-exercise" data-label="basic_operations" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="10">
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+</div>
+<div id="section-check-your-understanding" class="section level4">
+<h4>Check Your Understanding:</h4>
+<p>Use the space above to find the answer to the following question:</p>
+<div class="panel panel-default">
+<div class="panel-heading tutorial-panel-heading">Quiz</div>
+<table class="table quiz-table">
+<tr>
+<td>
+
+<div id="htmlwidget-6003e3a0c7bc752fe5e7" style="width:100%;height:auto;", class = "quiz html-widget">
+<div class="panel panel-default">
+<div class="panel-body quizArea">
+</div>
+</div>
+</div>
+
+<script type="application/json" data-for="htmlwidget-6003e3a0c7bc752fe5e7">{"x":{"question":"5 %% 2","answers":[{"option":"1","correct":true,"message":null},{"option":"2.5","correct":false,"message":null},{"option":"2","correct":false,"message":null},{"option":"10","correct":false,"message":null}],"label":"quiz_basics-1","skipStartButton":true,"perQuestionResponseAnswers":true,"perQuestionResponseMessaging":true,"preventUnanswered":true,"displayQuestionCount":false,"displayQuestionNumber":false,"disableRanking":true,"nextQuestionText":"","checkAnswerText":"Submit Answer","allowRetry":false,"randomSortAnswers":false,"json":{"info":{"name":"","main":""},"questions":[{"q":"5 %% 2","a":[{"option":"1","correct":true,"message":null},{"option":"2.5","correct":false,"message":null},{"option":"2","correct":false,"message":null},{"option":"10","correct":false,"message":null}],"correct":"Correct!","incorrect":"Incorrect."}]}},"evals":[],"jsHooks":[]}</script>
+</td>
+</tr>
+<tr>
+<td>
+
+<div id="htmlwidget-2122c415d10b63bd323b" style="width:100%;height:auto;", class = "quiz html-widget">
+<div class="panel panel-default">
+<div class="panel-body quizArea">
+</div>
+</div>
+</div>
+
+<script type="application/json" data-for="htmlwidget-2122c415d10b63bd323b">{"x":{"question":"158 %/% 25","answers":[{"option":"6.32","correct":false,"message":null},{"option":"3950","correct":false,"message":null},{"option":"6","correct":true,"message":null},{"option":"9.256082e+54","correct":false,"message":null}],"label":"quiz_basics-2","skipStartButton":true,"perQuestionResponseAnswers":true,"perQuestionResponseMessaging":true,"preventUnanswered":true,"displayQuestionCount":false,"displayQuestionNumber":false,"disableRanking":true,"nextQuestionText":"","checkAnswerText":"Submit Answer","allowRetry":false,"randomSortAnswers":false,"json":{"info":{"name":"","main":""},"questions":[{"q":"158 %/% 25","a":[{"option":"6.32","correct":false,"message":null},{"option":"3950","correct":false,"message":null},{"option":"6","correct":true,"message":null},{"option":"9.256082e+54","correct":false,"message":null}],"correct":"Correct!","incorrect":"Incorrect."}]}},"evals":[],"jsHooks":[]}</script>
+</td>
+</tr>
+<tr>
+<td>
+
+<div id="htmlwidget-596311a8bde2c00b8ee5" style="width:100%;height:auto;", class = "quiz html-widget">
+<div class="panel panel-default">
+<div class="panel-body quizArea">
+</div>
+</div>
+</div>
+
+<script type="application/json" data-for="htmlwidget-596311a8bde2c00b8ee5">{"x":{"question":"3 + 10 * (54 %% 3)","answers":[{"option":"0","correct":true,"message":null},{"option":"30","correct":false,"message":null},{"option":"183","correct":false,"message":null},{"option":"Results in Error Message","correct":false,"message":null}],"label":"quiz_basics-3","skipStartButton":true,"perQuestionResponseAnswers":true,"perQuestionResponseMessaging":true,"preventUnanswered":true,"displayQuestionCount":false,"displayQuestionNumber":false,"disableRanking":true,"nextQuestionText":"","checkAnswerText":"Submit Answer","allowRetry":false,"randomSortAnswers":false,"json":{"info":{"name":"","main":""},"questions":[{"q":"3 + 10 * (54 %% 3)","a":[{"option":"0","correct":true,"message":null},{"option":"30","correct":false,"message":null},{"option":"183","correct":false,"message":null},{"option":"Results in Error Message","correct":false,"message":null}],"correct":"Correct!","incorrect":"Incorrect."}]}},"evals":[],"jsHooks":[]}</script>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div id="section-declaring-variables" class="section level2">
+<h2>Declaring Variables:</h2>
+<p>Now that we know how to do some basic operations, we can learn how to store information for later use.</p>
+<p>storing the information is simple: using <code>&lt;-</code> is the assignment operation, the variable name goes on the left and the value you want to save goes on the right:</p>
+<p><code>x &lt;- 2 + 2</code></p>
+<p><code>hello &lt;- &quot;Hello, world!&quot;</code></p>
+<p>Variable names should be unique. If I repeat a variable name the most recent assingment of that variable will be the one used in proceeding operations where the variable is called.</p>
+<p>Click ‘Run Code’ to see which value for x is printed!</p>
+<div class="tutorial-exercise" data-label="variables" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="10">
+<pre class="text"><code>x &lt;- 2
+
+x &lt;- &quot;Hello, world!&quot;
+
+x</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+You can also store variables within variables:
+<div class="tutorial-exercise" data-label="variables_within" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="10">
+<pre class="text"><code>x &lt;- 2
+
+y &lt;- 6
+
+z &lt;- x + y
+
+z</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+</div>
+<div id="section-questions-comments-and-feedback" class="section level2">
+<h2>Questions, Comments and Feedback</h2>
+<p>Click the link to leave questions or comments and provide feedback for R Bar!</p>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLScyjSbVxJxHKeR6amIiBdLE_2kFmlS2NQ96Je4rGzPKDgCSFA/viewform?usp=sf_link">here</a> 
+<script type="application/shiny-prerendered" data-context="server-start">
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+learnr:::register_http_handlers(session, metadata = NULL)
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-basic_operations-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-basic_operations-code-editor`)), session)
+output$`tutorial-exercise-basic_operations-output` <- renderUI({
+  `tutorial-exercise-basic_operations-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-variables-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-variables-code-editor`)), session)
+output$`tutorial-exercise-variables-output` <- renderUI({
+  `tutorial-exercise-variables-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-variables_within-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-variables_within-code-editor`)), session)
+output$`tutorial-exercise-variables_within-output` <- renderUI({
+  `tutorial-exercise-variables_within-result`()
+})
+</script>
+ <!--html_preserve-->
+<script type="application/shiny-prerendered" data-context="dependencies">
+{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["jquery"]},{"type":"character","attributes":{},"value":["1.11.3"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/jquery-1.11.3"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquery.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["bootstrap"]},{"type":"character","attributes":{},"value":["3.3.5"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/bootstrap-3.3.5"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["viewport"]}},"value":[{"type":"character","attributes":{},"value":["width=device-width, initial-scale=1"]}]},{"type":"character","attributes":{},"value":["js/bootstrap.min.js","shim/html5shiv.min.js","shim/respond.min.js"]},{"type":"character","attributes":{},"value":["css/cerulean.min.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["pagedtable"]},{"type":"character","attributes":{},"value":["1.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/pagedtable-1.1"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/pagedtable.js"]},{"type":"character","attributes":{},"value":["css/pagedtable.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["highlightjs"]},{"type":"character","attributes":{},"value":["1.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/highlightjs-1.1"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["highlight.js"]},{"type":"character","attributes":{},"value":["textmate.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial"]},{"type":"character","attributes":{},"value":["0.9"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial.js"]},{"type":"character","attributes":{},"value":["tutorial.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-autocompletion"]},{"type":"character","attributes":{},"value":["0.9"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-autocompletion.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-diagnostics"]},{"type":"character","attributes":{},"value":["0.9"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-diagnostics.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-format"]},{"type":"character","attributes":{},"value":["0.9"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmarkdown/templates/tutorial/resources"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-format.js"]},{"type":"character","attributes":{},"value":["tutorial-format.css","rstudio-theme.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["jquery"]},{"type":"character","attributes":{},"value":["1.11.3"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/jquery-1.11.3"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquery.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["font-awesome"]},{"type":"character","attributes":{},"value":["4.5.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/font-awesome-4.5.0"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["css/font-awesome.min.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["bootbox"]},{"type":"character","attributes":{},"value":["4.4.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/bootbox"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["bootbox.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["localforage"]},{"type":"character","attributes":{},"value":["1.5"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/localforage"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["localforage.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial"]},{"type":"character","attributes":{},"value":["0.9"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial.js"]},{"type":"character","attributes":{},"value":["tutorial.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-autocompletion"]},{"type":"character","attributes":{},"value":["0.9"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-autocompletion.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-diagnostics"]},{"type":"character","attributes":{},"value":["0.9"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-diagnostics.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["htmlwidgets"]},{"type":"character","attributes":{},"value":["0.9"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["htmlwidgets.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["htmlwidgets"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["quiz-binding"]},{"type":"character","attributes":{},"value":["0.9"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["htmlwidgets"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["quiz.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[false]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["jquery"]},{"type":"character","attributes":{},"value":["1.11.3"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/jquery-1.11.3"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquery.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["bootstrap"]},{"type":"character","attributes":{},"value":["3.3.5"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/bootstrap-3.3.5"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["viewport"]}},"value":[{"type":"character","attributes":{},"value":["width=device-width, initial-scale=1"]}]},{"type":"character","attributes":{},"value":["js/bootstrap.min.js","shim/html5shiv.min.js","shim/respond.min.js"]},{"type":"character","attributes":{},"value":["css/bootstrap.min.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["bootbox"]},{"type":"character","attributes":{},"value":["4.4.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/bootbox"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["bootbox.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["localforage"]},{"type":"character","attributes":{},"value":["1.5"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/localforage"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["localforage.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial"]},{"type":"character","attributes":{},"value":["0.9"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial.js"]},{"type":"character","attributes":{},"value":["tutorial.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-autocompletion"]},{"type":"character","attributes":{},"value":["0.9"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-autocompletion.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-diagnostics"]},{"type":"character","attributes":{},"value":["0.9"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-diagnostics.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["slickquiz"]},{"type":"character","attributes":{},"value":["1.5.20"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["htmlwidgets/lib/slickquiz"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/slickQuiz.js"]},{"type":"character","attributes":{},"value":["css/slickQuiz.css","css/slickQuizTutorial.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]}]}
+</script>
+<!--/html_preserve-->
+</div>
+
+</div> <!-- topics -->
+
+<div class="topicsContainer">
+<div class="topicsPositioner">
+<div class="band">
+<div class="bandContent topicsListContainer">
+
+<!-- begin doc-metadata -->
+<div id="doc-metadata">
+<h2 class="title toc-ignore" style="display:none;">Week 1 - The Basics</h2>
+</div>
+<!-- end doc-metadata -->
+
+</div> <!-- bandContent.topicsListContainer -->
+</div> <!-- band -->
+</div> <!-- topicsPositioner -->
+</div> <!-- topicsContainer -->
+
+
+</div> <!-- bandContent page -->
+</div> <!-- pageContent band -->
+
+
+
+
+<script>
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+</script>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+
+</html>

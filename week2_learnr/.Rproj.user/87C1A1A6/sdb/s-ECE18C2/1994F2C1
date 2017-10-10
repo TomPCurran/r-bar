@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "library(tidyverse)\nlibrary(readxl) \n\n",
+    "created" : 1507585068029.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "3720507189",
+    "id" : "1994F2C1",
+    "lastKnownWriteTime" : 6,
+    "last_content_update" : 1507587873889,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1507587514948.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "A75C6C43",
+    "lastKnownWriteTime" : 4323634688,
+    "last_content_update" : 1507587514948,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "7DAE8A4",
+        "caption" : "Supportstaff1617",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=Supportstaff1617&cache_key=7DAE8A4",
+        "displayedObservations" : 39998,
+        "environment" : "",
+        "object" : "Supportstaff1617",
+        "preview" : 0,
+        "totalObservations" : 39998,
+        "variables" : 22
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

@@ -1,0 +1,133 @@
+---
+title: "Week 1 - The Basics"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Downloading and Installing R
+
+### Requirments:
+
+Make sure that your computer is updated to the latest version of the operating system
+
+If you don't update your computer you could run into installation issues:
+
+You will need to things: 
+
+1) R - the actual language that you use [here](https://www.r-project.org/)
+
+2) RStudio - the development environment, the main tool for R [here](https://www.rstudio.com/products/rstudio/download/)
+
+
+##Data Types in R:
+
+Data has different types in R, and the datat type influence the operations and functions you can perform on it:
+
+
+Type | Example | Uses
+-----|---------|---------
+Logical | TRUE, FALSE | 10 > 8 = TRUE
+Numeric | 1, 43.1, 532.37 | 2 + 2 = 4
+Character | "Hello", "Goodbye" | 'This is a string'
+
+## Basic Operations in R
+
+Basic operations:
+<center>
+Operation | Symbol | Example
+----------|--------|--------
+Addition  |    +   | 2 + 2
+Subtraction  |    -   | 3 - 2
+Division  |    /   | 4 / 2
+Multiplication  |    *   | 2 * 2
+Exponentiation  | ^ or ** | 2 ^ 2 or 2**2
+Modulus | %% | 4 %% 2
+Integer Division | %/% | 5 %/% 2
+</center>
+
+
+Modulus returns the remainder and integer division returns the result of division without the remainder
+
+R follows normal order of operations - remember PEMDAS
+
+####Practice:
+
+below is some space to practice the operations, when you have written your operation click 'Run Code' or 'Start Over'
+
+```{r basic_operations, exercise=TRUE, exercise.lines = 10}
+
+```
+
+####Check Your Understanding:
+
+Use the space above to find the answer to the following question:
+
+```{r quiz_basics}
+quiz(
+  question("5 %% 2",
+    answer("1", correct = TRUE),
+    answer("2.5"),
+    answer("2"),
+    answer("10")
+  ),
+  question("158 %/% 25",
+    answer("6.32"),
+    answer("3950"),
+    answer("6", correct = TRUE),
+    answer("9.256082e+54")
+  ),
+  question("3 + 10 * (54 %% 3)",
+    answer("0", correct = TRUE),
+    answer("30"),
+    answer("183"),
+    answer("Results in Error Message")
+  )
+  
+)
+```
+
+
+##Declaring Variables:
+
+Now that we know how to do some basic operations, we can learn how to store information for later use.
+
+storing the information is simple: using `<-` is the assignment operation, the variable name goes on the left and the value you want to save goes on the right:
+
+` x <- 2 + 2 `
+
+` hello <- "Hello, world!" `
+
+Variable names should be unique. If I repeat a variable name the most recent assingment of that variable will be the one used in proceeding operations where the variable is called. 
+
+Click 'Run Code' to see which value for x is printed!
+
+```{r variables, exercise=TRUE, exercise.lines = 10}
+x <- 2
+
+x <- "Hello, world!"
+
+x
+```
+
+You can also store variables within variables:
+```{r variables_within, exercise=TRUE, exercise.lines = 10}
+x <- 2
+
+y <- 6
+
+z <- x + y
+
+z
+```
+
+##Questions, Comments and Feedback
+
+Click the link to leave questions or comments and provide feedback for R Bar!
+
+[here](https://docs.google.com/forms/d/e/1FAIpQLScyjSbVxJxHKeR6amIiBdLE_2kFmlS2NQ96Je4rGzPKDgCSFA/viewform?usp=sf_link)

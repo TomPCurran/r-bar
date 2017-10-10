@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "\n2 + 2 \n\n\n\n2 /2 \n\n\n\n\n2 * 2\n",
+    "created" : 1507568491183.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1558479741",
+    "id" : "66813BB0",
+    "lastKnownWriteTime" : 1507579418,
+    "last_content_update" : 1507585051283,
+    "path" : "~/Documents/Git_kraken/R_Bar/week2_learnr/importing data.R",
+    "project_path" : "importing data.R",
+    "properties" : {
+        "tempName" : "Untitled2"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

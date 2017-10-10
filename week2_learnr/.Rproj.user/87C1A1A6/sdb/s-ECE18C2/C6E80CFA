@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "---\ntitle: \"Tutorial\"\noutput: learnr::tutorial\nruntime: shiny_prerendered\n---\n\n```{r setup, include=FALSE}\nlibrary(learnr)\nremoknitr::opts_chunk$set(echo = FALSE)\n```\n\n\n## Topic 1\n\n### Exercise \n\n*Here's a simple exercise with an empty code chunk provided for entering the answer.*\n\nWrite the R code required to add two plus two:\n\n```{r two-plus-two, exercise=TRUE}\n\n```\n\n### Exercise with Code\n\n*Here's an exercise with some prepopulated code as well as `exercise.lines = 5` to provide a bit more initial room to work.*\n\nNow write a function that adds any two numbers and then call it:\n\n```{r add-function, exercise=TRUE, exercise.lines = 5}\nadd <- function() {\n  \n}\n```\n\n## Topic 2\n\n### Exercise with Hint\n\n*Here's an exercise where the chunk is pre-evaulated via the `exercise.eval` option (so the user can see the default output we'd like them to customize). We also add a \"hint\" to the correct solution via the chunk immediate below labeled `print-limit-hint`.*\n\nModify the following code to limit the number of rows printed to 5:\n\n```{r print-limit, exercise=TRUE, exercise.eval=TRUE}\nmtcars\n```\n\n```{r print-limit-hint}\nhead(mtcars)\n```\n\n### Quiz\n\n*You can include any number of single or multiple choice questions as a quiz. Use the `question` function to define a question and the `quiz` function for grouping multiple questions together.*\n\nSome questions to verify that you understand the purposes of various base and recommended R packages:\n\n```{r quiz}\nquiz(\n  question(\"Which package contains functions for installing other R packages?\",\n    answer(\"base\"),\n    answer(\"tools\"),\n    answer(\"utils\", correct = TRUE),\n    answer(\"codetools\")\n  ),\n  question(\"Which of the R packages listed below are used to create plots?\",\n    answer(\"lattice\", correct = TRUE),\n    answer(\"tools\"),\n    answer(\"stats\"),\n    answer(\"grid\", correct = TRUE)\n  )\n)\n```\n\n",
+    "created" : 1507646364631.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2304811152",
+    "id" : "C6E80CFA",
+    "lastKnownWriteTime" : 1507474605,
+    "last_content_update" : 1507474605,
+    "path" : "~/Documents/Git_kraken/R_Bar/Week 1- The Basics/Week 1- The Basics.Rmd",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

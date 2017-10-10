@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "# 1) install the 'datasets' package from CRAN and load the packages\n\ninstall.packages('datasets')\nlibrary(datasets)\ndata(\"airquality\")\n\nglimpse(airquality)\n\nmean(airquality$Ozone, na.rm = T)\n\nsolarR_greater119 <- filter(airquality, Solar.R > 119, !is.na(Ozone))\n\nglimpse(solarR_greater119)# you now have a data set call airquality to look at\n\nView(solarR_greater119)\n# what are some ways I can look at the data?\n\n# what is a function?\n\n# how do I see the structure of the data frame?\n\nsummary(airquality$Ozone, na.rm = T)\n\nhead(airquality)\n\nmean(airquality$Solar.R, na.rm = T)\n\nmean(airquality$Ozone)\n\nmean(airquality$Day)\n\n\n#Working with strings:\n\nairquality$test_column <- ifelse(airquality$Solar.R > 119, \"Treatment\", \"Control\")\nairquality2 <- mutate(airquality, mutate_column = Month + Day)\n",
+    "created" : 1507568131899.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3627505931",
+    "id" : "A0CD1DF0",
+    "lastKnownWriteTime" : 1507579413,
+    "last_content_update" : 1507591182992,
+    "path" : "~/Documents/Git_kraken/R_Bar/week2_learnr/cleaning data .R",
+    "project_path" : "cleaning data .R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
