@@ -18,6 +18,10 @@ R Bar Schedule:
 
 [Feed Back Form](https://docs.google.com/forms/d/e/1FAIpQLScyjSbVxJxHKeR6amIiBdLE_2kFmlS2NQ96Je4rGzPKDgCSFA/viewform?usp=sf_link)
 
+## Stata and R Bar Support For Harris Students
+
+(Stata and R Support)[https://harris.uchicago.edu/gateways/current-students/campus-life/facilities-development/stata-r]
+
 ## Slack
 
 Slack is a great way to keep update to date with the latest news. Join the Harris slack group 'Harristas' today!
@@ -28,6 +32,8 @@ Channel: r_bar
 
 
 # Week 1 - The Basics
+
+(Practice Exercises)[https://tomcurranuchicago.shinyapps.io/Week_1/]
 
 ## Downloading and Installing R
 
