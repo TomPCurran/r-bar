@@ -6,13 +6,19 @@ Over the course of your time at Harris you will find R to be a very useful tool 
 
 R Bar Schedule: 
 
-Mondays: 4:30 - 6:30, Room 344 (The NORC Conference room on the third floor)
+- **Mondays**: 4:30 - 6:30, Room 344 (The NORC Conference room on the third floor)
 
-Fridays: 1:00 - 3:00, Room 140 B (On the first floor)
+- **Fridays**: 1:00 - 3:00, Room 140 B (On the first floor)
 
 ### Markdown
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
 
 ```markdown
 Syntax highlighted code block
