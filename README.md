@@ -26,7 +26,6 @@ You will need to things:
 
 2) RStudio - the development environment, the main tool for R [here](https://www.rstudio.com/products/rstudio/download/)
 
-
 ## Data Types in R:
 
 Data has different types in R, and the datat type influence the operations and functions you can perform on it:
@@ -36,3 +35,21 @@ Type | Example | Uses
 Logical | TRUE, FALSE | 10 > 8 = TRUE
 Numeric | 1, 43.1, 532.37 | 2 + 2 = 4
 Character | "Hello", "Goodbye" | 'This is a string'
+
+## Basic Operations in R
+
+Basic operations:
+
+Operation | Symbol | Example | Results
+----------|--------|--------|---------
+Addition  |    +   | 2 + 2 | 4
+Subtraction  |    -   | 3 - 2 | 1
+Division  |    /   | 4 / 2 | 2
+Multiplication  |    *   | 8 * 2 | 16
+Exponentiation  | ^ or ** | 3 ^ 2 or 3**2 | 9
+Modulus | %% | 5 %% 2  | 2
+Integer Division | %/% | 5 %/% 2 | 1
+
+Modulus returns the remainder and integer division returns the result of division without the remainder
+
+R follows normal order of operations - remember PEMDAS
