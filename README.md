@@ -10,40 +10,52 @@ R Bar Schedule:
 
 - **Fridays**: 1:00 - 3:00, Room 140 B (On the first floor)
 
-### Markdown
+# Week 1 - The Basics
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```{r setup, include=FALSE}
+```{r setup]
+
 library(learnr)
 knitr::opts_chunk$set(echo = FALSE)
+
 ```
 
+## Downloading and Installing R
 
-```markdown
-Syntax highlighted code block
+### Requirments:
 
-# Header 1
-## Header 2
-### Header 3
+Make sure that your computer is updated to the latest version of the operating system
 
-- Bulleted
-- List
+If you don't update your computer you could run into installation issues:
 
-1. Numbered
-2. List
+You will need to things: 
 
-**Bold** and _Italic_ and `Code` text
+1) R - the actual language that you use [here](https://www.r-project.org/)
 
-[Link](url) and ![Image](src)
+2) RStudio - the development environment, the main tool for R [here](https://www.rstudio.com/products/rstudio/download/)
+
+
+## Data Types in R:
+
+Data has different types in R, and the datat type influence the operations and functions you can perform on it:
+
+
+Type | Example | Uses
+-----|---------|---------
+Logical | TRUE, FALSE | 10 > 8 = TRUE
+Numeric | 1, 43.1, 532.37 | 2 + 2 = 4
+Character | "Hello", "Goodbye" | 'This is a string'
+
+#### Practice:
+
+below is some space to practice the operations, when you have written your operation click 'Run Code' or 'Start Over'
+
+```{r basic_operations, exercise=TRUE, exercise.lines = 10}
+
+
+
+
+
+
 ```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/TCurran4589/r-bar/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
