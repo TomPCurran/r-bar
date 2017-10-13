@@ -94,5 +94,5 @@ Variable names should be unique. If I repeat a variable name the most recent ass
 
 ### To Practice, download these data sets:
 
-(countries_geography)[r-bar/week2_learnr/countries_geography.csv]
-(countries_economy)[r-bar/week2_learnr/countries_economy.xlsx]
+[countries_geography](r-bar/week2_learnr/countries_geography.csv)
+[countries_economy](r-bar/week2_learnr/countries_economy.xlsx)
