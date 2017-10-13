@@ -26,7 +26,7 @@ R Bar Schedule:
 
 Slack is a great way to keep update to date with the latest news. Join the Harris slack group 'Harristas' today!
 
-[Slack Downloand](https://slack.com/)
+[Slack Download](https://slack.com/)
 
 Channel: r_bar
 
