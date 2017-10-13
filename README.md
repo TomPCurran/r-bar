@@ -88,3 +88,11 @@ storing the information is simple: using `<-` is the assignment operation, the v
 ` hello <- "Hello, world!" `
 
 Variable names should be unique. If I repeat a variable name the most recent assingment of that variable will be the one used in proceeding operations where the variable is called. 
+
+
+# Week 2 - Cleaning and Importing Data:
+
+### To Practice, download these data sets:
+
+(countries_geography)[r-bar/week2_learnr/countries_geography.csv]
+(countries_economy)[r-bar/week2_learnr/countries_economy.xlsx]
