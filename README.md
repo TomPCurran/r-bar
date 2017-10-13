@@ -94,7 +94,8 @@ Variable names should be unique. If I repeat a variable name the most recent ass
 
 ### To Practice, download these data sets:
 
+Download as a .csv file from google drive:
 [countries_geography](https://docs.google.com/spreadsheets/d/1c8Ff9kyANk85J6y3SLtULw_sDEttQQ2BFyYkKPkrYbc/edit?usp=sharing)
 
-
+Download as a .xlsx file from google drive:
 [countries_economy](https://docs.google.com/spreadsheets/d/1u9amOOKwaNRDP6mDh2Im1xze3PONpsJMN6SL1k8WJe0/edit?usp=sharing)
