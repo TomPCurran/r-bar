@@ -1,12 +1,15 @@
-library(tidyverse)
+# lets create a project
 
-read_csv()
+# load the libraries you want to you
 
-library(readxl)
 
-readxl::read_excel()
+# load the data frame and save it as a variable 
 
-#How can I find the functions of a particular package?
 
-#How can I find the arguments a function takes?
+# Explore the dataset (hint: use a function from tidyverse )
 
+
+# What do these two dataframes (files) have in common?
+
+
+# Merge the two data frames

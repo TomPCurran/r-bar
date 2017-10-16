@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+<meta name="progressive" content="false" />
+<meta name="allow-skip" content="false" />
+
+<title>Week 2: Importing and Manipulating Data Sets</title>
+
+
+<!-- highlightjs -->
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
+}
+</script>
+
+
+
+</head>
+
+<body>
+
+
+
+<div class="pageContent band">
+<div class="bandContent page">
+
+<div class="topics">
+
+<div id="section-week-2---working-with-messy-data" class="section level2">
+<h2>Week 2 - Working with Messy Data</h2>
+<p>In the real world, data is messy…really messy. Hardly ever are you going to get a data set that doesn’t have missing values, data type errors, or is contained in one, neat file. Luckily, R makes things easy to fix your messy data. This week we covered things like:</p>
+<ul>
+<li>Best practices for writing R Scripts</li>
+<li>Importing different types of data files</li>
+<li>Manipulating and editing dataframes</li>
+<li>Summary, and descriptive statistics for dataframes in R</li>
+</ul>
+<p>If you need a refresher on some of the basics, please make sure you go through the tutorial from week 1 on the basics <a href="https://tomcurranuchicago.shinyapps.io/Week_1/">Week 1 - The Basics</a></p>
+<p>For the following exercises, we will be using these data sets:</p>
+<p><a href="https://docs.google.com/spreadsheets/d/1u9amOOKwaNRDP6mDh2Im1xze3PONpsJMN6SL1k8WJe0/edit?usp=sharing">countries_geography</a></p>
+<p><a href="https://docs.google.com/spreadsheets/d/1u9amOOKwaNRDP6mDh2Im1xze3PONpsJMN6SL1k8WJe0/edit?usp=sharing">countries_economy</a></p>
+</div>
+<div id="section-best-practices-for-writing-r-scripts" class="section level2">
+<h2>Best Practices for Writing R Scripts</h2>
+<p>One of the most important things about writing R code is making it readable. Its great if you can read it, but chances are you will be sharing your code with other people!</p>
+<hr />
+<div id="section-keep-your-code-organized" class="section level4">
+<h4>1) Keep Your Code Organized:</h4>
+<p>R is great for working with multiple files at once, but sometimes when you’re working with more than 1 data file, keep track of those files can become cumbersome. To resolve this, R has a useful function called ‘Projects’. Projects are simply ways to associate files to one project, like a homework assignment. When you have your data sets, create a folder with a place to keep your data and R scripts.</p>
+<p><strong>To Create a Project:</strong></p>
+<ol style="list-style-type: decimal">
+<li>Click the button on the top right and click ‘new project’</li>
+</ol>
+<div class="figure">
+<img src="R-Bar_newproject.png" alt="Create a New Project" />
+<p class="caption">Create a New Project</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Choose the ‘existing directory’ option</li>
+</ol>
+<div class="figure">
+<img src="R-Bar_existingDirectory.png" alt="Select Existing Directory" />
+<p class="caption">Select Existing Directory</p>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Select the Directory where you saved the data you want to use. This will now be the folder R associates with your project and where your R Scripts will be saved.</li>
+</ol>
+<div class="figure">
+<img src="R-Bar_selectDirectory.png" alt="Choose your Directory" />
+<p class="caption">Choose your Directory</p>
+</div>
+<p><strong>Use an R Script NOT the console</strong></p>
+<p>The console window in R Studio is typically used to run a single command at a time. It is not a great way to address statistical problems that are more complex and have more steps. To remedy this, we write R Scripts. A Script is essenitally a notebad/text editor for R that allows you to save your work, and write multiple commands at once and R will go line by line and run each command (that is unless there is no error in your code!).</p>
+<p>To create a new script, click the left most button at the top of the R Studio window and select ‘new script’</p>
+<div class="figure">
+<img src="R-Bar_newScript.png" alt="Create A New Script" />
+<p class="caption">Create A New Script</p>
+</div>
+<hr />
+</div>
+<div id="section-comment-on-your-code" class="section level4">
+<h4>2) Comment on your code!</h4>
+<p>First, you should always comment on your code, telling the reader what your code <strong>should</strong> be doing.</p>
+<p>Commenting is easy - simply write a <code>#</code> at the beginning of the line and describe whats happening in the following lines. You don’t need to comment on every single line, but the more detail you can give the ready every 10 to 15 lines should be sufficient</p>
+<div class="tutorial-exercise" data-label="commenting" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="15">
+<pre class="text"><code>#This is a comment!
+
+2+2
+
+#This is a comment as well
+
+print(&quot;Hello, world!&quot;)
+
+#My comments should not be printing!
+
+2 ^ 8</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+<hr />
+</div>
+<div id="section-load-the-libraries-you-want-to-use-and-data-used-at-the-top-of-the-script" class="section level4">
+<h4>3) Load the libraries you want to use and data used at the top of the script:</h4>
+<p>Thankfully, there are a lot of people using R, and even better is they put their code out there for you to use. Work smarter, not harder!</p>
+<p>To install one of these packages, use the function called <code>install.packages()</code>. You only need to do this once, so I would recommend entering the command in the Console section of R Studio. We use the console so we can check for error messages (if there are any).</p>
+<p>The most important library that you will need is called <code>tidyverse</code> and is actually several different libraries in 1!</p>
+<p><code>install.packages(&quot;tidyverse&quot;)</code></p>
+<p>Once you run this command you won’t have to reinstall the package every time you open R.</p>
+<p>Now that you have it installed you need to be able to access the functions inside of the library. And as we mentioned before, the best practice is to load the libraries at the top to the script.</p>
+<p>To load a script, use the <code>library()</code> function:</p>
+<div class="tutorial-exercise" data-label="laoding_libraries" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="3">
+<pre class="text"><code>library(tidyverse)</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+<p>You will see some messages in the console when your run the command indiciating that R is loading the several smaller packages that actually make up the ‘tidyverse’. Don’t worry where it says ‘Confilct with tidy packages’…it should still work,</p>
+<p>Next up, getting in your messy data!</p>
+</div>
+</div>
+<div id="section-importing-data" class="section level2">
+<h2>Importing Data</h2>
+<p>There are several different ways to import data into R, for now, we should focus on how to do this via code. Importing data with code will help automate and share your work.</p>
+<p>Before moving forward, make sure you have the following libraries installed:</p>
+<p><code>readxl</code></p>
+<p><code>tidyverse</code></p>
+<p>(If you don’t know how to do this, please go to the previous section)</p>
+<p>If you want to follow along on your own machine, I suggest creating a project (detailed steps in previous section)</p>
+<hr />
+<p>You now have two files you want to work with: countries_economy.xlsx, and countries_geograph.csv</p>
+<p>When working with data, its important to take note of what the file extension of the file is:</p>
+<ul>
+<li><strong>.xlsx</strong> : excel 2013 or later format</li>
+<li><strong>.csv</strong> : comma seperated value (usually opened with excel)</li>
+<li><strong>.dta</strong> : stata data file</li>
+<li><strong>.xls </strong>: excel file used before 2013</li>
+</ul>
+<p>we will be focusing on the .csv and .xlsx</p>
+<p>Lucky for us, Tidverse as many useful functions for importing data, we just need to know which ones!</p>
+<hr />
+<div id="section-reading-.csv-files" class="section level3">
+<h3>Reading .csv Files</h3>
+<p>The first file we want to import is countries_geography.csv. Notice that the file extension is .csv.</p>
+<p>Because we’re going to use this data set, known commonly as a dataframe in R, we want to save it so we can recall it easily. We can save it by using the assignment operator <code>&lt;-</code>.</p>
+<p>to read in .csv files, we want to use Tidyverse’s <code>read_csv()</code> and we want to pass in two arguments (there are more but we’ll focus on only 2):</p>
+<ol style="list-style-type: decimal">
+<li><p>the name of the file with extension in quotes</p></li>
+<li><p>the argument <code>col_names = TRUE</code>, which tells R the first row in the file is the name of the columns, which saves them as variable names within R.</p></li>
+</ol>
+<p><strong>Do Not Use <code>read.csv()</code> to import csv files</strong></p>
+<pre><code>library(tidyverse)
+
+#Tidyverse is loaded. 
+#Pro-tip: passing values/arguments into a function by using a comma, and pressing enter for a new line makes the code easier to see what value is #being passed in, see my code below:
+
+geo &lt;- read_csv(&#39;countries_geography.csv&#39;, 
+                col_names = T)
+
+</code></pre>
+<p>Now our geography files is saved (for this session) as geo</p>
+<hr />
+</div>
+<div id="section-reading-in-.xslx" class="section level3">
+<h3>Reading in .xslx:</h3>
+<p>Similar to .csv files, we can use a special function to import .xlsx. For this we will need the <code>readxl</code> library.</p>
+<p>As always, make sure your library is installed and load it at the top of your script and we want to pass in three different arguments to the <code>read_excel</code> function in R:</p>
+<ol style="list-style-type: decimal">
+<li><p>the name of the file with extension in quotes</p></li>
+<li><p>the argument <code>col_names = TRUE</code>, which tells R the first row in the file is the name of the columns, which saves them as variable names within R.</p></li>
+<li><p>The sheet number within excel. This is the name of the tab you see when you open excel. By default its going to open the first sheet, but if you want a different sheet to be loaded as a dataframe, you must specify the name of the sheet.</p></li>
+</ol>
+<pre><code>library(readxl)
+
+econ &lt;- read_excel(&#39;countries_economy.xlsx&#39;,
+                    col_names = T,
+                    sheet = &quot;Sheet1&quot;)</code></pre>
+<p><strong>Now you have two dataframes to work with!</strong></p>
+<p>You can see what dataframes are loaded into you current workspace using the environment tab on the right hand side.</p>
+<div class="figure">
+<img src="R-Bar_dataEnvironment.png" alt="Data loaded into your current environment" />
+<p class="caption">Data loaded into your current environment</p>
+</div>
+</div>
+</div>
+<div id="section-manipulating-and-editing-dataframes" class="section level2">
+<h2>Manipulating and editing dataframes:</h2>
+<p>You have data loaded into R, now what?</p>
+<p>In many cases, your files will be to big to open in excel or other programs and will cause the system to crash. So to see what your data looks like we have a couple of options.</p>
+<p>the most simple are <code>head()</code> and <code>tail()</code> which show the first six rows, and the last six rows. Try it out with the loaded <code>geo</code> or <code>econ</code> data sets</p>
+<div class="tutorial-exercise" data-label="head_tails" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>#Try using the head() function geo data set
+
+
+#Try using the tail() function on the econ data set</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+<p>while this is useful for small data sets, chances are you will be using VERY large data sets, and these functions aren’t the greatest use of time. Also, when you run <code>head()</code> and <code>tail()</code> in your console, R Studio won’t show all the data (even though it still there).</p>
+<p>There are two really useful functions for looking at data</p>
+<p><strong>str()</strong></p>
+<p>In the excercise below, try running the str() command to explore the data</p>
+<div class="tutorial-exercise" data-label="str" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>#Tidyverse is loaded
+#readxl is loaded
+#geo and econ available in workspace:</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+<p>Check that out! R should print out the names of each column in the data set, the type of data (see week1 for more info) and the first couple of rows of data. But the result is kind of messy and can be confusing to read…</p>
+<p><strong>glimpse()</strong></p>
+<p>Another great option in the tidyverse library is the function called <code>glimpse()</code> which is very similar to the base <code>str()</code> function but with slightly better functionality. You’ll notice that the <code>str()</code> data set stoped showing the columns at a certain point, that is because R literally ran out space to print things and isn’t smart enough to know how to change that.</p>
+<p>However, <code>glimpse()</code> will be smart enough and print every column’s name, data type and first few rows to demonstrat</p>
+<div class="tutorial-exercise" data-label="glimpse" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>#Tidyverse is loaded
+#readxl is loaded
+#geo and econ available in workspace, try using glimpse() on the data sets:</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+<p>Much better than str()!</p>
+<hr />
+<p>We use <code>glimpse()</code> and <code>merge()</code> to explore the data sets, and sometimes our data is the wrong data type (see week 1 for more info on this)[<a href="https://tomcurranuchicago.shinyapps.io/Week_1/" class="uri">https://tomcurranuchicago.shinyapps.io/Week_1/</a>].</p>
+<p>Luckily there is an easy fix if you find that there is a mismatch between the type of data that exists in the structure and the type of data you want. As you will see in the upcoming summary statistics section, having what looks like numbers, but R saved as a string, can impede calculations. Alternative there are some variables that are categorical, and you want to save a characters/strings:</p>
+<p>Say our dataframe, dataframe, has a column that looks like a number, but R imported it as a string. Our goal is to find the mean of that column. But as you probably guessed, R can’t find the mean of a bunch of strings, so we have to convert the data type.</p>
+<p>the simplest way to do this is using the <code>as.datatype()</code> method:</p>
+<p>here, after the <code>as.</code> we want to designate what type of data we want to convert to. Lets say our column is a string and we want to convert to an integer we would write:</p>
+<p><code>as.numeric(dataframe$Column)</code></p>
+<p>This will convert all values in that column to a numeric data type. You can convert columns to different data types but be very careful which data type you choose to convert to!</p>
+<p>to save the column as the new data type, simple assign it to the column using the assignment operator:</p>
+<p><code>dataframe$Column &lt;- as.numeric(dataframe$Column)</code></p>
+<hr />
+<p>Working with two data sets can be cumbersome, so lets be more effecient and create one unified data set to work with!</p>
+<p>For now, we can use the <code>merge()</code> commange to accomplish create 1 data set. However, there are better options to merge data sets the ensure that the data is not compromised. The section entitled ‘Advanced Joins’ will go over these techniques, but is not necessary to fully grasp how to create 1 data set, but if you are going to work with R I <strong>highly</strong> encourage using these advanced functions and not <code>merge()</code></p>
+<div id="section-merge" class="section level4">
+<h4>Merge():</h4>
+<p>When we talk about joining dataframes in R, we need to know the structure of the dataframes themselves, and we can do that with the tidyverse function <code>glimpse()</code> that we just learned!</p>
+<p>Using the <code>glimpse()</code> function on both geo and econ, figure out what the two data sets have in common:</p>
+<div class="tutorial-exercise" data-label="explore_data" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>#Tidyverse is loaded
+#readxl is loaded
+#geo and econ available in workspace, try using glimpse() on the data sets:</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+<p>What column do the data sets have in common?</p>
+<p>If you guess ‘Country’, thats right! Country is going to become what we refer to as the ‘Key’, the thing that matches between two seperate dataframes.</p>
+<p><em>When using strings (characters/words) as keys, R will only match or consider them the same key if they are spelled exactly the same. That means capitalization, spelling, and <strong>white spaces</strong> matter!</em></p>
+<p>Merging data sets means appening the columns of one data set onto another data set. One of the tricky things about merging is that R will only look for the key values in the dataframe that you are appending. That means if you have 10 rows with key values, and the dataframe you want to merge has 15 key values, the 5 rows that are not in the first data set will not show up in the merged dataframe.</p>
+<div class="tutorial-exercise" data-label="merge_test" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="0">
+<pre class="text"><code>#limit the geo dataframe to the first 5 rows
+geo_test &lt;- geo[1:5,]
+
+#limit the econ dataframe to the first 7 rows 
+econ_test &lt;- econ[1:7, ]
+
+#try to merge the geo_test and econ_test dataframes to see what happens to the extra 2 rows in econ_test
+merge(geo_test, econ_test, by = &quot;Country&quot;)</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+<p>This is one of the many reasons why using glimpse() or str() is so important!</p>
+<p>Another important thing to consider is that the key values in the dataframes are unique. When you have identical keys in the column you are trying to match, it can cause signficant issues and lead to bad data!</p>
+<hr />
+<p>In our case, we know that econ and geo data sets have unique values and the same keys in both data sets, lets get ready to append the columns togethor using <code>merge()</code>:</p>
+<p><code>merge()</code> takes three arguments:</p>
+<ol style="list-style-type: decimal">
+<li><p>the data set to append columns to - these will be your left most columns: <code>x</code></p></li>
+<li><p>the data set who’s columns you want to match and append to the dataframe in #1: <code>y</code></p></li>
+<li><p>the column you want R to match between the two data sets, your dataframe’s key: <code>by =</code></p></li>
+</ol>
+<p>In our case, the column we want R to match on in both dataframes is named ‘Country’, so we can use the <code>by =</code> argument. If you want to match the dataframes on columns with the same values but different names, it is best to use the <code>by.x =</code> and the <code>by.y =</code> arguments (remembering to seperate each argument by a comma)</p>
+<p>Using the space below, try merging the econ and geo dataframes and see what happens.</p>
+<p>your code should look like this: <code>merge(x, y, by = &quot;ColumnName&quot;)</code> <strong>OR</strong> <code>merge(x, y, by.x =&quot;Column1&quot;, by.y = &quot;Column_One&quot;)</code></p>
+<div class="tutorial-exercise" data-label="merging_econAndGeo" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="15">
+<pre class="text"><code>#tidyverse and readxl are loaded
+#geo and econ are loaded</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+<p>Great! Now that you have the dataframes merged, its much more convenient!</p>
+<hr />
+<p>A really useful function in tidyverse is called <code>mutate()</code>, which allows you to create a new column in the dataframe. The <code>mutate()</code> function comes in handy esepcially when you want the new column to be a function of other columns in your dataframe.</p>
+<p>To use <code>mutate()</code>, two arguments:</p>
+<ol style="list-style-type: decimal">
+<li><p>the name of the dataframe you want to mutate</p></li>
+<li><p>the name of the new column and what it should be set equal too:</p></li>
+</ol>
+<p>The code should look something like this:</p>
+<p><code>mutate(dataFrame, new_column = Column1 - Column2)</code></p>
+<p>In the space below, try creating a new column within the available data sets:</p>
+<p>**Remember: if you want to save the new column to the dataframe you first assign the new column to the dataframe using the assignment operator, it should look something like this:</p>
+<p><code>dataframe &lt;- mutate(dataFrame, new_column = Column1 - Column2)</code></p>
+<p>Also note that the new column will be at the end of the dataframe **</p>
+<div class="tutorial-exercise" data-label="mutating" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="15">
+<pre class="text"><code>#tidyverse and readxl are loaded
+#geo and econ are loaded</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+<hr />
+<p>Often times, we need to order a dataframe by a column, with Tidyverse its easy!</p>
+<p>To re-order a dataframe, we want to use <code>arrange()</code> function, that will sort based on the specified column name and preserve the integrity of the entire dataframe. Your <code>arrange()</code> function should look like this:</p>
+<p><code>arrange(dataframe, Column)</code></p>
+<p>By default, the <code>arrange()</code> function will return a dataframe order from smallest to largest value in the column you specified. To go from largest to smallest, simply place a minus sign (-) next to the column you want to sort on in the <code>arrange()</code> function</p>
+<p><code>arrange(dataframe, -Column)</code></p>
+<p><strong>Note that unless you save the arranged dataframe using the assignment operater <code>&lt;-</code> R will not preserve the sort order the next time you use the dataframe </strong></p>
+<p>Using the space below, practice using the <code>arrange()</code> function to find the most and least populated countries.</p>
+<div class="tutorial-exercise" data-label="arrange" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="10">
+<pre class="text"><code>#Tidyverse and readXL is loaded
+#countries, geo, and econ dataframes are loaded</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+<hr />
+<p>Often times we need only certain values of the data set in a particular column. For example we if we only want countries with populations &gt; 1000000000, countries that don’t meet that criteria can get in the way when we start doing summary statistics.</p>
+<p>In this case, tidyverse has the function callled <code>filter()</code> where we can pass in a set of criteria that rely on logical operators to decided whether to keep or exclude a resulting data set:</p>
+<p><code>filter(dataframe, Column1 &lt; 100 &amp; Column2 &gt; 200 )</code></p>
+<p>as you can see the second argument is a set of criteria for R to look for. In this case it requires that the row have a value greater than 100 in column 1 <strong>AND</strong> a value less than 200 in column 2. In this case, only values that meet both criteria will be shown in the new data set. However, we can also use the operator OR, represented by the symbol <code>|</code> as well as NOT EQUAL TO, represented by <code>!=</code>. In R, when you see an exclimation point it means “do the opposite”. For example if I wrate <code>!TRUE</code> it will evaluate to <code>FALSE</code> and vice versa. In our case if we write <code>!=</code> it will include everything that is not equal to the value on the right.</p>
+<p>Here is a list of logical operators in R:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Symbol</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>==</code></td>
+<td>equal to</td>
+</tr>
+<tr class="even">
+<td><code>&gt;=</code></td>
+<td>greater than or equal to</td>
+</tr>
+<tr class="odd">
+<td><code>&lt;=</code></td>
+<td>less than or equal to</td>
+</tr>
+<tr class="even">
+<td><code>&gt;</code></td>
+<td>greater than</td>
+</tr>
+<tr class="odd">
+<td><code>&lt;</code></td>
+<td>less than</td>
+</tr>
+<tr class="even">
+<td><code>!=</code></td>
+<td>not equal to</td>
+</tr>
+</tbody>
+</table>
+<p>Try Using the <code>filter()</code> function in the space below</p>
+<div class="tutorial-exercise" data-label="logical_operators" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="10">
+<pre class="text"><code>#Tidyerse is loaded
+#you have econ, and geo data sets available to use.</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+</div>
+</div>
+<div id="section-summary-and-descriptive-statistics" class="section level2">
+<h2>Summary and Descriptive Statistics</h2>
+<p>Now that we have our data ready to go, we can finally get to the fun part, statistics!</p>
+<p>Lucky for us, someone has already done the hard work for us with Tidyverse and R to calculate stats!</p>
+<p>You can think of each column in a dataframe as a list of information and you can access that list by writing <code>dataFrame$ColumnName</code>.</p>
+<p>Try using that syntax to print out all of the country names in the newly merge data set, which we have saved as <code>countries</code>:</p>
+<div class="tutorial-exercise" data-label="print_list" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="10">
+<pre class="text"><code>#Tidyverse and readXL are loaded
+#you have counries, geo, and econ available in your work space</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+<p>Your command should have resulted in 227 different countries being printed to the console. This is very useful short hand for accessing single columns</p>
+<p>Say you only want the first 5 countries, and columns 3 and 5. You can use the square brack notation in R to accomplish this:</p>
+<p><code>dataframe[1:5, c(3,5)]</code></p>
+<p>where the name of the dataframe followed by [] (no spaces between the dataframe and [ ]). The first part of the [ ] notation are the rows. Using the <code>:</code> is short hand of saying <code>x through y</code> so that you don’t have to type out all of the row numbers you want. the second part of the bracket notation ([ ]) are columns. in this case we use the c() function to say columns 3 and 5, but not four. The same c() function can be used to call specific rows, for example, say you want rows 1, 154, and 3 it would look like this: <code>dataFrame[c(1,3,154),]</code>. This will return all columns for those specific rows. If you want to return all columns or rows, simply leave the argument before or after the , blank.</p>
+<p>Try practicing the bracket notation in the space below:</p>
+<div class="tutorial-exercise" data-label="bracket_notation" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="10">
+<pre class="text"><code>#Tidyverse and readXL is loaded
+#countries, geo, and econ dataframes are loaded</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+<hr />
+<p>Now that we know how to call specific columns and rows for dataframes, lets apply some stats to our data!</p>
+<p>Here are some of the most important functions that you will use the quarter:</p>
+<table style="width:82%;">
+<colgroup>
+<col width="18%" />
+<col width="63%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>mean()</code></td>
+<td>calculates the average of a list of numbers</td>
+</tr>
+<tr class="even">
+<td><code>summary()</code></td>
+<td>calculates the Min, 1st Quartile, Median, Mean, 3rd Quartile, Max and the amount of NA’s in the list if present</td>
+</tr>
+<tr class="odd">
+<td><code>sd()</code></td>
+<td>calculates the standard deviation</td>
+</tr>
+<tr class="even">
+<td><code>var()</code></td>
+<td>calculates the variance of a list</td>
+</tr>
+<tr class="odd">
+<td><code>sum()</code></td>
+<td>sums the list of numbers</td>
+</tr>
+</tbody>
+</table>
+<p>When we looked at our data in the first sections, you may have noticed that there were some missing values in some of the columns, which show up as ‘NA’. This means that there is no value for the country in that column. If R sees that when calculating something like <code>mean()</code> it will throw you an error. If this is the ase, R has a handy argument for functions called <code>na.rm</code> where if you set it equal to true inside the <code>mean()</code> function, will skip over those NA values when calculating the mean.</p>
+<p>Note that some functions don’t need the <code>na.rm =</code> argument. To check which do and do not need it, use the <code>?function</code> syntax to look up documentation.</p>
+<p><em>Becuase it skips over the <code>NA</code> values, R calculates the mean of the available data</em></p>
+<p>Your argument should look like this:</p>
+<p><code>mean(dataframe$Column, na.rm = TRUE</code>)</p>
+<p>Try calculating the mean of different columns in countries with and without the <code>na.rm</code> argument</p>
+<div class="tutorial-exercise" data-label="na_rm_test" data-caption="Code" data-completion="1" data-diagnostics="1" data-startover="1" data-lines="7">
+<pre class="text"><code>#countries, geo and econ are avaiable to your workspace
+#Tidyverse and readxl are available to use
+
+
+#Try calculating the mean() of Population in countries</code></pre>
+<script type="application/json" data-opts-chunk="1">{"fig.width":6.5,"fig.height":4,"fig.retina":2,"fig.align":"default","fig.keep":"high","fig.show":"asis","out.width":624,"warning":true,"error":false,"message":true,"exercise.df_print":"paged","exercise.checker":"NULL"}</script>
+</div>
+</div>
+<div id="section-feedback" class="section level2">
+<h2>Feedback</h2>
+Questions? Comments? Want to learn something specifc? Let me know! <a href="https://goo.gl/forms/wX8Kkjd6FDwf40tP2">Feedback</a> 
+<script type="application/shiny-prerendered" data-context="server-start">
+library(learnr)
+library(tidyverse)
+library(readxl)
+knitr::opts_chunk$set(echo = FALSE)
+
+geo <- read_csv('countries_geography.csv', col_names = T)
+
+econ <- read_excel('countries_economy.xlsx', col_names = T, sheet = 'Sheet1')
+
+countries <- merge(geo, econ, by = 'Country')
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+learnr:::register_http_handlers(session, metadata = NULL)
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-commenting-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-commenting-code-editor`)), session)
+output$`tutorial-exercise-commenting-output` <- renderUI({
+  `tutorial-exercise-commenting-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-laoding_libraries-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-laoding_libraries-code-editor`)), session)
+output$`tutorial-exercise-laoding_libraries-output` <- renderUI({
+  `tutorial-exercise-laoding_libraries-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-head_tails-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-head_tails-code-editor`)), session)
+output$`tutorial-exercise-head_tails-output` <- renderUI({
+  `tutorial-exercise-head_tails-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-str-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-str-code-editor`)), session)
+output$`tutorial-exercise-str-output` <- renderUI({
+  `tutorial-exercise-str-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-glimpse-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-glimpse-code-editor`)), session)
+output$`tutorial-exercise-glimpse-output` <- renderUI({
+  `tutorial-exercise-glimpse-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-explore_data-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-explore_data-code-editor`)), session)
+output$`tutorial-exercise-explore_data-output` <- renderUI({
+  `tutorial-exercise-explore_data-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-merge_test-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-merge_test-code-editor`)), session)
+output$`tutorial-exercise-merge_test-output` <- renderUI({
+  `tutorial-exercise-merge_test-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-merging_econAndGeo-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-merging_econAndGeo-code-editor`)), session)
+output$`tutorial-exercise-merging_econAndGeo-output` <- renderUI({
+  `tutorial-exercise-merging_econAndGeo-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-mutating-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-mutating-code-editor`)), session)
+output$`tutorial-exercise-mutating-output` <- renderUI({
+  `tutorial-exercise-mutating-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-arrange-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-arrange-code-editor`)), session)
+output$`tutorial-exercise-arrange-output` <- renderUI({
+  `tutorial-exercise-arrange-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-logical_operators-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-logical_operators-code-editor`)), session)
+output$`tutorial-exercise-logical_operators-output` <- renderUI({
+  `tutorial-exercise-logical_operators-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-print_list-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-print_list-code-editor`)), session)
+output$`tutorial-exercise-print_list-output` <- renderUI({
+  `tutorial-exercise-print_list-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-bracket_notation-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-bracket_notation-code-editor`)), session)
+output$`tutorial-exercise-bracket_notation-output` <- renderUI({
+  `tutorial-exercise-bracket_notation-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-na_rm_test-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-na_rm_test-code-editor`)), session)
+output$`tutorial-exercise-na_rm_test-output` <- renderUI({
+  `tutorial-exercise-na_rm_test-result`()
+})
+</script>
+ <!--html_preserve-->
+<script type="application/shiny-prerendered" data-context="dependencies">
+{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["jquery"]},{"type":"character","attributes":{},"value":["1.11.3"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/jquery-1.11.3"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquery.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["bootstrap"]},{"type":"character","attributes":{},"value":["3.3.5"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/bootstrap-3.3.5"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["viewport"]}},"value":[{"type":"character","attributes":{},"value":["width=device-width, initial-scale=1"]}]},{"type":"character","attributes":{},"value":["js/bootstrap.min.js","shim/html5shiv.min.js","shim/respond.min.js"]},{"type":"character","attributes":{},"value":["css/cerulean.min.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["pagedtable"]},{"type":"character","attributes":{},"value":["1.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/pagedtable-1.1"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/pagedtable.js"]},{"type":"character","attributes":{},"value":["css/pagedtable.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["highlightjs"]},{"type":"character","attributes":{},"value":["1.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/highlightjs-1.1"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["highlight.js"]},{"type":"character","attributes":{},"value":["textmate.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial"]},{"type":"character","attributes":{},"value":["0.9"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial.js"]},{"type":"character","attributes":{},"value":["tutorial.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-autocompletion"]},{"type":"character","attributes":{},"value":["0.9"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-autocompletion.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-diagnostics"]},{"type":"character","attributes":{},"value":["0.9"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-diagnostics.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-format"]},{"type":"character","attributes":{},"value":["0.9"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmarkdown/templates/tutorial/resources"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-format.js"]},{"type":"character","attributes":{},"value":["tutorial-format.css","rstudio-theme.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["jquery"]},{"type":"character","attributes":{},"value":["1.11.3"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/jquery-1.11.3"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["jquery.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["font-awesome"]},{"type":"character","attributes":{},"value":["4.5.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["rmd/h/font-awesome-4.5.0"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["css/font-awesome.min.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["rmarkdown"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["bootbox"]},{"type":"character","attributes":{},"value":["4.4.0"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/bootbox"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["bootbox.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["localforage"]},{"type":"character","attributes":{},"value":["1.5"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/localforage"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["localforage.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial"]},{"type":"character","attributes":{},"value":["0.9"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial.js"]},{"type":"character","attributes":{},"value":["tutorial.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-autocompletion"]},{"type":"character","attributes":{},"value":["0.9"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-autocompletion.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["tutorial-diagnostics"]},{"type":"character","attributes":{},"value":["0.9"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/tutorial"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["tutorial-diagnostics.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ace"]},{"type":"character","attributes":{},"value":["1.2.6"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/ace"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["ace.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["clipboardjs"]},{"type":"character","attributes":{},"value":["1.5.15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["lib/clipboardjs"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["clipboard.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["learnr"]},{"type":"logical","attributes":{},"value":[true]}]}]}
+</script>
+<!--/html_preserve-->
+</div>
+
+</div> <!-- topics -->
+
+<div class="topicsContainer">
+<div class="topicsPositioner">
+<div class="band">
+<div class="bandContent topicsListContainer">
+
+<!-- begin doc-metadata -->
+<div id="doc-metadata">
+<h2 class="title toc-ignore" style="display:none;">Week 2: Importing and Manipulating Data Sets</h2>
+</div>
+<!-- end doc-metadata -->
+
+</div> <!-- bandContent.topicsListContainer -->
+</div> <!-- band -->
+</div> <!-- topicsPositioner -->
+</div> <!-- topicsContainer -->
+
+
+</div> <!-- bandContent page -->
+</div> <!-- pageContent band -->
+
+
+
+
+<script>
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+</script>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+
+</html>
