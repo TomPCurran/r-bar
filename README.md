@@ -91,6 +91,8 @@ Variable names should be unique. If I repeat a variable name the most recent ass
 
 ## Week 2 - Working with Messy Data
 
+[Click Here to Work with the Interactive Exercises](https://tomcurranuchicago.shinyapps.io/Week_2)
+
 In the real world, data is messy...really messy. Hardly ever are you going to get a data set that doesn't have missing values, data type errors, or is contained in one, neat file. Luckily, R makes things easy to fix your messy data. This week we covered things like:
 
   - Best practices for writing R Scripts
