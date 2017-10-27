@@ -10,6 +10,11 @@ R Bar Schedule:
 
 - **Fridays**: 1:00 - 3:00, Room 140 B (On the first floor)
 
+[R For Data Science](http://r4ds.had.co.nz/data-visualisation.html)
+
+
+
+
 ## Sign in Sheet
 
 [Sign in Sheet During R Bar Sessions](https://docs.google.com/forms/d/e/1FAIpQLSczAozxtqX3nLecB4d0n_Ywl5JedqtrsFSxL-m-Y4hM3V_n3Q/viewform?usp=sf_link)
