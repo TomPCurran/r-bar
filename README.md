@@ -11,6 +11,7 @@ R Bar Schedule:
 - **Fridays**: 1:00 - 3:00, Room 140 B (On the first floor)
 
 [R For Data Science](http://r4ds.had.co.nz/data-visualisation.html)
+[ggplot documentation](http://ggplot2.tidyverse.org/reference/index.html)
 
 
 
