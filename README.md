@@ -6,15 +6,14 @@ Over the course of your time at Harris you will find R to be a very useful tool 
 
 R Bar Schedule: 
 
-- **Mondays**: 4:30 - 6:30, Room 344 (The NORC Conference room on the third floor)
+- **Mondays**: 4:30 - 7:30, Room 344 (The NORC Conference room on the third floor)
+- **Wednedays**: 5:45 - 7:30, Room 344 (The NORC Conference room on the third floor)
+- **Fridays**: 12:00 - 3:00, Room 140 B (On the first floor)
 
-- **Fridays**: 1:00 - 3:00, Room 140 B (On the first floor)
-
+**R Resources:**
 [R For Data Science](http://r4ds.had.co.nz/data-visualisation.html)
 [ggplot documentation](http://ggplot2.tidyverse.org/reference/index.html)
-
-
-
+[Data Camp](www.DataCamp.com)
 
 ## Sign in Sheet
 
@@ -39,7 +38,7 @@ Channel: r_bar
 
 # Week 1 - The Basics
 
-[Practice Exercises](https://tomcurranuchicago.shinyapps.io/Week_1/)
+[Interactive Exercises](https://harrispolicy.shinyapps.io/week_1/)
 
 ## Downloading and Installing R
 
@@ -97,7 +96,7 @@ Variable names should be unique. If I repeat a variable name the most recent ass
 
 ## Week 2 - Working with Messy Data
 
-[Click Here to Work with the Interactive Exercises](https://tomcurranuchicago.shinyapps.io/Week_2)
+[Click Here to Work with the Interactive Exercises]((https://harrispolicy.shinyapps.io/week_2/)
 
 In the real world, data is messy...really messy. Hardly ever are you going to get a data set that doesn't have missing values, data type errors, or is contained in one, neat file. Luckily, R makes things easy to fix your messy data. This week we covered things like:
 
@@ -110,11 +109,11 @@ If you need a refresher on some of the basics, please make sure you go through t
 
 For the following exercises, we will be using these data sets:
 
-Download as a .csv file from google drive:
-[countries_economy](https://docs.google.com/spreadsheets/d/1c8Ff9kyANk85J6y3SLtULw_sDEttQQ2BFyYkKPkrYbc/edit?usp=sharing)
+Download file from google drive:
+[countries_economy](https://docs.google.com/spreadsheets/d/1c8Ff9kyANk85J6y3SLtULw_sDEttQQ2BFyYkKPkrYbc/edit#gid=1973072008)
 
-Download as a .xlsx file from google drive:
-[countries_geographies](https://docs.google.com/spreadsheets/d/1u9amOOKwaNRDP6mDh2Im1xze3PONpsJMN6SL1k8WJe0/edit?usp=sharing)
+Download from google drive:
+[countries_geographies](https://docs.google.com/spreadsheets/d/1u9amOOKwaNRDP6mDh2Im1xze3PONpsJMN6SL1k8WJe0/edit#gid=1530292399)
 
 ```{r setup, include=FALSE}
 library(learnr)
@@ -622,3 +621,5 @@ Try calculating the mean of different columns in countries with and without the 
 Questions? Comments? Want to learn something specifc? Let me know!
 [Feedback](https://goo.gl/forms/wX8Kkjd6FDwf40tP2)
 
+# Week 3 and 4 - Grouping and Summarizing
+[Interactive Exercises](https://harrispolicy.shinyapps.io/R_Bar_Group_By/)
