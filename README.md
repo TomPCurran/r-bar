@@ -10,6 +10,10 @@ R Bar Schedule:
 - **Wednedays**: 5:45 - 7:30, Room 344 (The NORC Conference room on the third floor)
 - **Fridays**: 12:00 - 3:00, Room 140 B (On the first floor)
 
+**DATA SET FOR WEEK 8***
+
+[Height and Weight](https://docs.google.com/spreadsheets/d/10F9unpFIcvb-upPTFTJ_B8E4Vj_M-Jmp03qqWwBiRZg/edit?usp=sharing)
+
 **R Resources:**
 [R For Data Science](http://r4ds.had.co.nz/data-visualisation.html)
 [ggplot documentation](http://ggplot2.tidyverse.org/reference/index.html)
