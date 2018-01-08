@@ -6,9 +6,8 @@ Over the course of your time at Harris you will find R to be a very useful tool 
 
 R Bar Schedule: 
 
-- **Mondays**: 4:30 - 7:30, Room 344 (The NORC Conference room on the third floor)
-- **Wednedays**: 5:45 - 7:30, Room 344 (The NORC Conference room on the third floor)
-- **Fridays**: 12:00 - 3:00, Room 140 B (On the first floor)
+- **Mondays**: 3:30 - 5:30, Room 344 (The NORC Conference room on the third floor)
+- **Fridays**: 1:00 - 3:00, Room 344 (The NORC Conference room on the third floor)
 
 **DATA SET FOR WEEK 8***
 
