@@ -356,7 +356,7 @@ There are two really useful functions for looking at data
 
 In the excercise below, try running the str() command to explore the data
 
-```{r str, exercise = T, exercise.length = 10}
+```
 #Tidyverse is loaded
 #readxl is loaded
 #geo and econ available in workspace:
