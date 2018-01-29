@@ -201,7 +201,7 @@ First, you should always comment on your code, telling the reader what your code
 
 Commenting is easy - simply write a `#` at the beginning of the line and describe whats happening in the following lines. You don't need to comment on every single line, but the more detail you can give the ready every 10 to 15 lines should be sufficient
 
-```{r commenting, exercise=TRUE, exercise.lines = 15}
+```
 
 #This is a comment!
 
