@@ -9,14 +9,14 @@ R Bar Schedule:
 - **Mondays**: 3:30 - 5:30, Room 344 (The NORC Conference room on the third floor)
 - **Fridays**: 1:00 - 3:00, Room 344 (The NORC Conference room on the third floor)
 
-**DATA SET FOR WEEK 8***
-
-[Height and Weight](https://docs.google.com/spreadsheets/d/10F9unpFIcvb-upPTFTJ_B8E4Vj_M-Jmp03qqWwBiRZg/edit?usp=sharing)
-
 **R Resources:**
 [R For Data Science](http://r4ds.had.co.nz/data-visualisation.html)
 [ggplot documentation](http://ggplot2.tidyverse.org/reference/index.html)
 [Data Camp](www.DataCamp.com)
+[R Markdown Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
+[R Data Wrangling Cheat](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
+[R GGPlot2 Cheat Sheet](https://www.rstudio.com/wp-content/uploads/2015/08/ggplot2-cheatsheet.pdf)
+[Data Exploration Cheat Sheet](https://www.analyticsvidhya.com/blog/2015/10/cheatsheet-11-steps-data-exploration-with-codes/)
 
 ## Sign in Sheet
 
@@ -39,8 +39,7 @@ Slack is a great way to keep update to date with the latest news. Join the Harri
 Channel: r_bar
 
 
-# Week 1 - The Basics
-
+# The Basics
 [Interactive Exercises](https://harrispolicy.shinyapps.io/week_1/)
 
 ## Downloading and Installing R
@@ -97,9 +96,9 @@ storing the information is simple: using `<-` is the assignment operation, the v
 
 Variable names should be unique. If I repeat a variable name the most recent assingment of that variable will be the one used in proceeding operations where the variable is called. 
 
-## Week 2 - Working with Messy Data
+## Working with Messy Data
 
-[Click Here to Work with the Interactive Exercises]((https://harrispolicy.shinyapps.io/week_2/)
+[Click Here to Work with the Interactive Exercises](https://harrispolicy.shinyapps.io/week_2/)
 
 In the real world, data is messy...really messy. Hardly ever are you going to get a data set that doesn't have missing values, data type errors, or is contained in one, neat file. Luckily, R makes things easy to fix your messy data. This week we covered things like:
 
@@ -118,7 +117,7 @@ Download file from google drive:
 Download from google drive:
 [countries_geographies](https://docs.google.com/spreadsheets/d/1u9amOOKwaNRDP6mDh2Im1xze3PONpsJMN6SL1k8WJe0/edit#gid=1530292399)
 
-```{r setup, include=FALSE}
+```
 library(learnr)
 library(tidyverse)
 library(readxl)
@@ -204,7 +203,7 @@ Now that you have it installed you need to be able to access the functions insid
 
 To load a script, use the `library()` function:
 
-```{r laoding_libraries, exercise=TRUE, exercise.lines = 3}
+```
 library(tidyverse)
 ```
 
@@ -227,7 +226,6 @@ Before moving forward, make sure you have the following libraries installed:
 If you want to follow along on your own machine, I suggest creating a project (detailed steps in previous section)
 
 ***
-
 You now have two files you want to work with: countries_economy.xlsx, and countries_geograph.csv
 
 When working with data, its important to take note of what the file extension of the file is:
@@ -243,7 +241,7 @@ Lucky for us, Tidverse as many useful functions for importing data, we just need
 
 ***
 
-###Reading .csv Files
+### Reading .csv Files
 The first file we want to import is countries_geography.csv. Notice that the file extension is .csv. 
 
 Because we're going to use this data set, known commonly as a dataframe in R, we want to save it so we can recall it easily. We can save it by using the assignment operator `<-`.
@@ -265,15 +263,14 @@ library(tidyverse)
 
 geo <- read_csv('countries_geography.csv', 
                 col_names = T)
-
-
 ```
 
 Now our geography files is saved (for this session) as geo
 
 ***
 
-###Reading in .xslx:
+### 
+Reading in .xslx:
 
 Similar to .csv files, we can use a special function to import .xlsx. For this we will need the `readxl` library. 
 
@@ -618,11 +615,22 @@ Try calculating the mean of different columns in countries with and without the 
 
 ```
 
-## Feedback
+***
 
+# Grouping and Summarizing
+[Interactive Exercises](https://harrispolicy.shinyapps.io/R_Bar_Group_By/)
+
+***
+
+
+# Data Practice Sets:
+
+[Height and Weight](https://docs.google.com/spreadsheets/d/10F9unpFIcvb-upPTFTJ_B8E4Vj_M-Jmp03qqWwBiRZg/edit?usp=sharing)
+
+
+## Feedback
 
 Questions? Comments? Want to learn something specifc? Let me know!
 [Feedback](https://goo.gl/forms/wX8Kkjd6FDwf40tP2)
 
-# Week 3 and 4 - Grouping and Summarizing
-[Interactive Exercises](https://harrispolicy.shinyapps.io/R_Bar_Group_By/)
+
