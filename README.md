@@ -74,7 +74,7 @@ Channel: r_bar
 # The Basics
 [Interactive Exercises](https://harrispolicy.shinyapps.io/week_1/)
 
-## Downloading and Installing R
+### Downloading and Installing R
 
 ### Requirments:
 
@@ -88,7 +88,7 @@ You will need to things:
 
 2) RStudio - the development environment, the main tool for R [here](https://www.rstudio.com/products/rstudio/download/)
 
-## Data Types in R:
+### Data Types in R:
 
 Data has different types in R, and the datat type influence the operations and functions you can perform on it:
 
@@ -98,7 +98,7 @@ Logical | TRUE, FALSE | 10 > 8 = TRUE
 Numeric | 1, 43.1, 532.37 | 2 + 2 = 4
 Character | "Hello", "Goodbye" | 'This is a string'
 
-## Basic Operations in R
+### Basic Operations in R
 
 Basic operations:
 
@@ -116,7 +116,7 @@ Modulus returns the remainder and integer division returns the result of divisio
 
 R follows normal order of operations - remember PEMDAS
 
-## Declaring Variables:
+### Declaring Variables:
 
 Now that we know how to do some basic operations, we can learn how to store information for later use.
 
@@ -128,7 +128,7 @@ storing the information is simple: using `<-` is the assignment operation, the v
 
 Variable names should be unique. If I repeat a variable name the most recent assingment of that variable will be the one used in proceeding operations where the variable is called. 
 
-## Working with Messy Data
+### Working with Messy Data
 
 [Click Here to Work with the Interactive Exercises](https://harrispolicy.shinyapps.io/week_2/)
 
@@ -162,7 +162,7 @@ econ <- read_excel('countries_economy.xlsx', col_names = T, sheet = 'Sheet1')
 countries <- merge(geo, econ, by = 'Country')
 ```
 
-## Best Practices for Writing R Scripts
+### Best Practices for Writing R Scripts
 
 One of the most important things about writing R code is making it readable. Its great if you can read it, but chances are you will be sharing your code with other people! 
 
@@ -423,10 +423,6 @@ Using the `glimpse()` function on both geo and econ, figure out what the two dat
 #Tidyverse is loaded
 #readxl is loaded
 #geo and econ available in workspace, try using glimpse() on the data sets:
-
-
-
-
 
 ```
 
