@@ -375,7 +375,7 @@ Another great option in the tidyverse library is the function called `glimpse()`
 
 However, `glimpse()` will be smart enough and print every column's name, data type and first few rows to demonstrat
 
-```{r glimpse, exercise = T, exercise.length = 10}
+```
 #Tidyverse is loaded
 #readxl is loaded
 #geo and econ available in workspace, try using glimpse() on the data sets:
