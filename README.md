@@ -528,7 +528,7 @@ By default, the `arrange()` function will return a dataframe order from smallest
 
 Using the space below, practice using the `arrange()` function to find the most and least populated countries. 
 
-```{r arrange, exercise = T, exercise.lines = 10}
+```
 #Tidyverse and readXL is loaded
 #countries, geo, and econ dataframes are loaded
 
@@ -638,8 +638,6 @@ Try calculating the mean of different columns in countries with and without the 
 
 
 #Try calculating the mean() of Population in countries
-
-
 
 ```
 
