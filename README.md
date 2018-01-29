@@ -419,7 +419,7 @@ When we talk about joining dataframes in R, we need to know the structure of the
 
 Using the `glimpse()` function on both geo and econ, figure out what the two data sets have in common:
 
-```{r explore_data, exercise = T, exercise.length=15}
+```
 #Tidyverse is loaded
 #readxl is loaded
 #geo and econ available in workspace, try using glimpse() on the data sets:
@@ -435,7 +435,7 @@ If you guess 'Country', thats right! Country is going to become what we refer to
 Merging data sets means appening the columns of one data set onto another data set. One of the tricky things about merging is that R will only 
 look for the key values in the dataframe that you are appending. That means if you have 10 rows with key values, and the dataframe you want to merge has 15 key values, the 5 rows that are not in the first data set will not show up in the merged dataframe. 
 
-```{r merge_test, exercise = T}
+```
 #limit the geo dataframe to the first 5 rows
 geo_test <- geo[1:5,]
 
@@ -469,7 +469,7 @@ Using the space below, try merging the econ and geo dataframes and see what happ
 
 your code should look like this: `merge(x, y, by = "ColumnName")` **OR** `merge(x, y, by.x ="Column1", by.y = "Column_One")`
 
-```{r merging_econAndGeo, exercise = T, exercise.lines = 15}
+```
 #tidyverse and readxl are loaded
 #geo and econ are loaded
 
@@ -503,7 +503,7 @@ In the space below, try creating a new column within the available data sets:
 
 Also note that the new column will be at the end of the dataframe **
 
-```{r mutating, exercise = T, exercise.lines = 15}
+```
 #tidyverse and readxl are loaded
 #geo and econ are loaded
 
@@ -561,8 +561,7 @@ Symbol | Meaning
 
 Try Using the `filter()` function in the space below
 
-```{r logical_operators, exercise = T, exercise.lines = 10}
-
+```
 #Tidyerse is loaded
 #you have econ, and geo data sets available to use.
 
@@ -580,7 +579,7 @@ You can think of each column in a dataframe as a list of information and you can
 
 Try using that syntax to print out all of the country names in the newly merge data set, which we have saved as `countries`:
 
-```{r print_list, exercise = T, exercise.lines = 10}
+```
 #Tidyverse and readXL are loaded
 #you have counries, geo, and econ available in your work space
 
@@ -599,7 +598,7 @@ where the name of the dataframe followed by [] (no spaces between the dataframe 
 
 Try practicing the bracket notation in the space below:
 
-```{r bracket_notation, exercise = T, exercise.lines = 10}
+```
 #Tidyverse and readXL is loaded
 #countries, geo, and econ dataframes are loaded
 
@@ -632,7 +631,7 @@ Your argument should look like this:
 
 Try calculating the mean of different columns in countries with and without the `na.rm` argument
 
-```{r na_rm_test, exercise = T, exercise.lines = 7}
+```
 #countries, geo and econ are avaiable to your workspace
 #Tidyverse and readxl are available to use
 
