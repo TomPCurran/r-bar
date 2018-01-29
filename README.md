@@ -9,28 +9,59 @@ R Bar Schedule:
 - **Mondays**: 3:30 - 5:30, Room 344 (The NORC Conference room on the third floor)
 - **Fridays**: 1:00 - 3:00, Room 344 (The NORC Conference room on the third floor)
 
-**R Resources:**
-[R For Data Science](http://r4ds.had.co.nz/data-visualisation.html)
-[ggplot documentation](http://ggplot2.tidyverse.org/reference/index.html)
-[Data Camp](www.DataCamp.com)
-[R Markdown Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
-[R Data Wrangling Cheat](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
-[R GGPlot2 Cheat Sheet](https://www.rstudio.com/wp-content/uploads/2015/08/ggplot2-cheatsheet.pdf)
-[Data Exploration Cheat Sheet](https://www.analyticsvidhya.com/blog/2015/10/cheatsheet-11-steps-data-exploration-with-codes/)
 
-## Sign in Sheet
+# Sign in Sheet
 
 [Sign in Sheet During R Bar Sessions](https://docs.google.com/forms/d/e/1FAIpQLSczAozxtqX3nLecB4d0n_Ywl5JedqtrsFSxL-m-Y4hM3V_n3Q/viewform?usp=sf_link)
 
-## Feedback form
+# Feedback form
 
 [Feed Back Form](https://docs.google.com/forms/d/e/1FAIpQLScyjSbVxJxHKeR6amIiBdLE_2kFmlS2NQ96Je4rGzPKDgCSFA/viewform?usp=sf_link)
 
-## Stata and R Bar Support For Harris Students
+***
+
+# R Resources:
+
+[Download Cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
+
+### Data Science: 
+[R For Data Science](http://r4ds.had.co.nz/data-visualisation.html)
+
+[Data Exploration Cheat Sheet](https://www.analyticsvidhya.com/blog/2015/10/cheatsheet-11-steps-data-exploration-with-codes/)
+
+[Data Camp](www.DataCamp.com)
+
+### R Markdown
+[R Markdown Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
+
+### Data Cleaning
+[R Data Wrangling Cheat](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
+
+### R Pubs
+[R Pubs](www.rpubs.com)
+
+### Shiny Apps:
+[Shiny Apps](shinyapps.io)
+
+### Data Visualization:
+
+[R GGPlot2 Cheat Sheet](https://www.rstudio.com/wp-content/uploads/2015/08/ggplot2-cheatsheet.pdf)
+
+[ggplot documentation](http://ggplot2.tidyverse.org/reference/index.html)
+
+### Git:
+[Straight forward Git Tutorial](http://rogerdudler.github.io/git-guide/)
+
+[Interactive Git Tutorial](https://try.github.io/levels/1/challenges/1)
+***
+
+# Other Important Information:
+
+### Stata and R Bar Support For Harris Students
 
 [Stata and R Support](https://harris.uchicago.edu/gateways/current-students/campus-life/facilities-development/stata-r)
 
-## Slack
+### Slack
 
 Slack is a great way to keep update to date with the latest news. Join the Harris slack group 'Harristas' today!
 
@@ -38,6 +69,7 @@ Slack is a great way to keep update to date with the latest news. Join the Harri
 
 Channel: r_bar
 
+***
 
 # The Basics
 [Interactive Exercises](https://harrispolicy.shinyapps.io/week_1/)
@@ -621,7 +653,8 @@ Try calculating the mean of different columns in countries with and without the 
 [Interactive Exercises](https://harrispolicy.shinyapps.io/R_Bar_Group_By/)
 
 ***
-
+# Grouping Revisted and Regression:
+[Interactive Exercises](https://harrispolicy.shinyapps.io/winter_2018_week_2/)
 
 # Data Practice Sets:
 
