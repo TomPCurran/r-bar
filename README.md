@@ -650,12 +650,12 @@ Try calculating the mean of different columns in countries with and without the 
 # Grouping Revisted and Regression:
 [Interactive Exercises](https://harrispolicy.shinyapps.io/winter_2018_week_2/)
 
-# Data Practice Sets:
+# Practice Data Sets:
 
 [Height and Weight](https://docs.google.com/spreadsheets/d/10F9unpFIcvb-upPTFTJ_B8E4Vj_M-Jmp03qqWwBiRZg/edit?usp=sharing)
 
 
-## Feedback
+# Feedback
 
 Questions? Comments? Want to learn something specifc? Let me know!
 [Feedback](https://goo.gl/forms/wX8Kkjd6FDwf40tP2)
