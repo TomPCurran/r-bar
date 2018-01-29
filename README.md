@@ -243,7 +243,7 @@ You will see some messages in the console when your run the command indiciating 
 
 Next up, getting in your messy data!
 
-## Importing Data
+### Importing Data
 
 There are several different ways to import data into R, for now, we should focus on how to do this via code. Importing data with code will help automate and share your work.
 
@@ -329,7 +329,7 @@ You can see what dataframes are loaded into you current workspace using the envi
 
 ![Data loaded into your current environment](R-Bar_dataEnvironment.png)
 
-## Manipulating and editing dataframes:
+### Manipulating and editing dataframes:
 
 You have data loaded into R, now what?
 
@@ -337,7 +337,7 @@ In many cases, your files will be to big to open in excel or other programs and 
 
 the most simple are `head()` and `tail()` which show the first six rows, and the last six rows. Try it out with the loaded `geo` or `econ` data sets
 
-```{r head_tails, exercise = T, exercise.length = 10}
+```
 
 #Try using the head() function geo data set
 
@@ -570,7 +570,7 @@ Try Using the `filter()` function in the space below
 ```
 
 
-## Summary and Descriptive Statistics
+### Summary and Descriptive Statistics
 
 Now that we have our data ready to go, we can finally get to the fun part, statistics!
 
