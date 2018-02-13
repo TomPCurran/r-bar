@@ -649,6 +649,16 @@ Try calculating the mean of different columns in countries with and without the 
 # Grouping Revisted and Regression:
 [Interactive Exercises](https://harrispolicy.shinyapps.io/winter_2018_week_2/)
 
+***
+# Leaflet Tutorial:
+[Community Areas Shape File:](https://data.cityofchicago.org/Facilities-Geographic-Boundaries/Boundaries-Community-Areas-current-/cauq-8yn6)
+
+[Chicago Libraries](https://data.cityofchicago.org/Education/Libraries-Locations-Hours-and-Contact-Information/x8fc-8rcq/data)
+
+[Census Tracts:](https://data.cityofchicago.org/Facilities-Geographic-Boundaries/Boundaries-Census-Tracts-2010/5jrd-6zik)
+
+
+
 # Practice Data Sets:
 
 [Height and Weight](https://docs.google.com/spreadsheets/d/10F9unpFIcvb-upPTFTJ_B8E4Vj_M-Jmp03qqWwBiRZg/edit?usp=sharing)
