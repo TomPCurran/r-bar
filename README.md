@@ -651,10 +651,16 @@ Try calculating the mean of different columns in countries with and without the 
 
 ***
 # Leaflet Tutorial:
+
+Each of these links leads to the Chicago Data portal, there should be a button to "export" the data in different formats. Make sure that the geographic ones are exported as Shapefiles!
+
+Export as Shapefile:
 [Community Areas Shape File:](https://data.cityofchicago.org/Facilities-Geographic-Boundaries/Boundaries-Community-Areas-current-/cauq-8yn6)
 
+Export as CSV
 [Chicago Libraries](https://data.cityofchicago.org/Education/Libraries-Locations-Hours-and-Contact-Information/x8fc-8rcq/data)
 
+Export as Shapefile:
 [Census Tracts:](https://data.cityofchicago.org/Facilities-Geographic-Boundaries/Boundaries-Census-Tracts-2010/5jrd-6zik)
 
 
