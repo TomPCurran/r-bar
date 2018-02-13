@@ -1,0 +1,81 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+$y = \beta_{0} + \beta_{1}X$
+```{r}
+
+library(tidyverse)
+library(datasets)
+library(ggfortify)
+
+require("ggfortify")
+
+
+data("iris")
+
+glimpse(iris)
+head(iris, 10)
+str(iris)
+tail(iris)
+
+unique(iris$Species)
+```
+
+```{r reg}
+
+glimpse(iris)
+
+#y = Petal.Length
+
+# X = Sepal.Length
+
+model <- lm(Petal.Length ~ Sepal.Length + Petal.Width, data = iris)
+
+coefficients(model)
+
+summary(model)
+
+fitted<-fitted(model)
+residuals <- residuals(model)
+
+iris2 <- iris
+
+iris2$residuals <- residuals
+iris2$fitted <- fitted
+glimpse(iris2)
+
+
+```
+
+```{r}
+plot(Sepal.Length ~ Sepal.Width, data = iris)
+abline(6.5262226, -0.2233611)
+abline(lm(Sepal.Length ~ Sepal.Width, data = iris))
+```
+
+```{r}
+
+model <- lm(Petal.Length ~ Sepal.Length , data = iris)
+model2 <- lm(Petal.Length ~ Sepal.Length + Petal.Width, data = iris)
+
+model
+
+model2
+ggplot(iris, aes(x = Sepal.Length , y = Petal.Length)) +
+  geom_point(aes(color = Species))+
+  geom_smooth(method="lm", se = FALSE) +
+  xlab("Sepal Length")+
+  ylab("Petal Length")+
+  ggtitle("My Model") + 
+  theme_bw()
+
+
+x <- read_csv("filename.csv")
+
+summary(model)
+```
+
+$\frac{1}{2}$

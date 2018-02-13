@@ -1,0 +1,193 @@
+---
+title: "R Bar Winter 2018, Week 2: Describing Data and Linear Regression"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+
+library(tidyverse)
+
+df <- read_csv('height_weight.csv')
+
+df$birth_month <- sample(1:12, size = nrow(df), replace = TRUE)
+
+df$birth_month <-as.factor(df$birth_month)
+
+names(df) <- c('index', 'height', 'weight', 'birth_month')
+
+df <- df[,c('height','weight','birth_month')]
+```
+
+
+## Describing Data
+
+More often than not, data sets consist of individual observations. For example, an observation could be a data on a single person, place or thing or even a time, but more importantly those individual observations can be grouped together through some common theme. Say for example we had a data set of weather that captured that maximum temperature of each day for a year. Those observations could be grouped by month to get an average maximum temperature. It is generally a good idea to to start of with a more granular data set and then aggregate up and to do that we will use the `group_by()` and `summarize()` functions in R
+
+For the exercises this week we will be using the Height and Weight data from the R Bar website
+
+### Describe your Data Set
+
+The data for height and weight has already been loaded in your workspace for these tutorials as `df`.
+
+####Excercise 1: Explore the Data
+
+*using one of the four typical methods, explore the data set to see the basic (meta) information about your data frame*
+
+* `glimpse()`
+* `str()`
+* `head()`
+* `tail()`
+
+*using `summary` explore the summary statistics for each of the dataframe's variables*
+
+```{r df_structure, exercise=TRUE}
+
+
+
+```
+
+Anwer the following questions based on your code above
+```{r glimpse_quiz}
+quiz(
+  question("Which of the answers below is NOT true about the dataframe",
+    answer("there are 4 columns"),
+    answer("there are 25000 observations"),
+    answer("all of the columns are of the data type INT", correct = TRUE),
+    answer("there are no variables of string type")
+  ),
+  question("Which of the following is the mean height and mean weight ",
+           answer("Height: 67.99, Weight: 127.08", correct = TRUE),
+           answer("Height: 127.08, Weight: 67.88"),
+           answer("Height: 60.28, Weight: 78.01"),
+           answer("Height: 75.15, Weight: 170.82")
+  )
+)
+```
+
+## Group By & Summarize
+
+Grouping by data makes it useful for studying groups of people. For example, looking at the data set say that we want to generate some statistic for people's height and weight by birth month. Here we can use the `group_by()` and `summarize()` functions. This is a two step process:
+
+
+**1. Decide which factor you want to group by:**
+
+``` birth_months <- group_by(df, birth_month)```
+
+**2. Join the `group_by()` and `summarize()` functions with the pipe operator: `%>%`**
+
+The pipe operator simply passes the results of your `group_by()` function to `summarize()` so that the columns can be properly aggregated. The pipe operator `%>%` goes directly after the closing `)` of the group by statement
+
+**3. using the `summarize()` function, decide how you want the columns to be aggregated**
+
+since we used the pipe operator (`%>%`) the `summarize()` function will take what is produced from the `group_by()` function and aggregate the original data frame to the level specificed by the `group_by()` function.
+
+the `summarize()` function essenitally creates a new column from a aggreagation method. In other words, your `summarize()` should look like this 
+
+`summarize(name_new_col = statistical_function(old_col))`
+
+you can add as many columns as you want so long as the original data exists in the orignal data frame, 
+
+
+All together your code would look like this:
+
+```
+new_data_frame <- group_by(df, col_group) %>%
+  summarize(name_new_col = statistical_function(old_col))
+
+```
+
+Note that if you just want to find the statistic for the columns with out group you can just use the `summarize()` function in the same way just without using `group_by`. This will essentially give you one "row" of data that corresponds to a column, similar to stata's collapse command. 
+
+### Exercise
+
+*using the code above as a template, find the mean height and median weight by birth month*
+```{r group_by_practice, exercise=TRUE}
+
+```
+
+### Quiz
+
+Anser the questions below to make sure that you group_by and summarized properly
+
+```{r quiz}
+quiz(
+  question("Which of the following is the average height for people born in month 11:",
+    answer("67.97649"),
+    answer("67.97930"),
+    answer("68.05518", correct = TRUE),
+    answer(" 67.98649")
+  ),
+  question("Which of the following is the median weight for month 4?",
+    answer("126.9607"),
+    answer("127.2183", correct = TRUE),
+    answer("127.7011"),
+    answer("127.4410")
+  )
+)
+```
+
+
+## Linear Models
+
+Though they look and sound intimidating, linear models/regression are straightforward in R.
+
+using the existing data set, we can use the function `lm()` to fit a linear model to our data!
+
+here is what the `lm()` code should look like:
+
+```
+model<- lm(Outcome_Variable ~ Input_Variable, data = data_frame)
+
+print(model)
+```
+
+
+the biggest disctinction in the `lm()` function is the use of `~`, but all it does is indicate the desired model/relationship to the `lm()` function. The output variable (Y) always goes to the right of the `~` and the input(s) always go to the right of the `~`
+
+Similar to when we used the `t.test()` function, the `lm()` function produces a of really useful information. Once you save your linear model you can pass the model into any one of the following functions in order to glean more information from the model:
+
+*`coefficients(model)`: the model's beta coefficients
+
+*`confint(model, level = .95)`: the confidence intervals for model parameters
+
+*`fitted(model)`: the predicted values
+
+*`residuals(model)`: the residual value
+
+*`anove(model)`: anova table
+
+*`vcov(model)`: covariance matrix for model parameters
+
+*`influence(model)`: regression diagnostics 
+
+###Excercise: 
+
+*using the space below, construct a model using the height and weight dataframe to construct a model that explains the relationship between weight as the outcome variable and weight as the input variable using the `lm()` function.*
+
+```{r linear_model_practice, exercise = TRUE}
+
+
+
+```
+
+
+Answer the following questions:
+```{r lm_quiz}
+quiz(
+  question("What is the beta zero (intercept) of the model?",
+    answer(".12"),
+    answer("45.2"),
+    answer("57.6", correct = TRUE),
+    answer(".08")
+  ),
+  question("What is the coefficient for the weight variable?",
+    answer(".08", correct = TRUE),
+    answer(".1"),
+    answer(".55"),
+    answer(".4")
+  )
+)
+

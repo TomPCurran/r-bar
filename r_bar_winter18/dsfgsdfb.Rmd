@@ -1,0 +1,30 @@
+---
+title: "R Notebook"
+output:
+  html_notebook: default
+  pdf_document: default
+  word_document: default
+---
+
+
+##### This is my Header
+
+This is my text
+
+
+$$ y =\beta_{0xqwerty} + \beta_{1}X_iqwerty  $$
+
+```{r x, results = 'asis'}
+library(xtable)
+library(stargazer)
+data(tli)
+
+x <- xtable(head(tli), type = "html")
+stargazer::stargazer(x)
+```
+```{r}
+print(xtable::xtable(head(tli), 
+                     caption = "Table with xtable"), 
+      comment = FALSE)
+```
+

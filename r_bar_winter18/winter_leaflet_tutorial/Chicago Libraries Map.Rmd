@@ -1,0 +1,157 @@
+---
+title: "Leaflet Map"
+output: html_notebook
+---
+
+```{r libraries}
+library(leaflet)
+library(tidyverse)
+library(rgdal)
+library(stringr)
+#Link to Community Areas Shape File:
+#https://data.cityofchicago.org/Facilities-Geographic-Boundaries/Boundaries-Community-Areas-current-/cauq-8yn6 
+
+#Link to Nieghborhoods Shape File:
+#https://data.cityofchicago.org/Facilities-Geographic-Boundaries/Boundaries-Neighborhoods/9wp7-iasj
+
+#Link to libraries data set
+#https://data.cityofchicago.org/Education/Libraries-Locations-Hours-and-Contact-Information/x8fc-8rcq/data
+
+#Census Tracts:
+#https://data.cityofchicago.org/Facilities-Geographic-Boundaries/Boundaries-Census-Tracts-2010/5jrd-6zik
+```
+
+```{r data, include=FALSE}
+
+#Shape file for community areas 
+community_areas <-  rgdal::readOGR("Community_Areas/geo_export_64f564f9-bbb0-4893-9c04-2bd840f11e39.shp")
+
+#Shape file for nieghborhods
+neighborhoods <-rgdal::readOGR("Neighborhoods/Neighborhoods_2012b.shp")
+
+#Shape file for census tracts:
+census_tracts <-rgdal::readOGR("Census_Tracts/geo_export_691c98eb-6349-42df-9f22-7bd5fde203c3.shp")
+
+#Points of interest:
+libraries <- read_csv("POI/Libraries.csv")
+
+glimpse(libraries)
+#View(community_areas)
+```
+
+
+```{r clean_poi}
+#We want to seperate out these latitudes and longitudes to make it easier to use
+
+clean_location <- function(location) {
+  
+  cleaned <- stringr::str_replace(location, '\\(' ,"") 
+  cleaned <-stringr::str_replace(cleaned, "\\)","")
+  #print(cleaned)
+  return(cleaned)
+}
+
+libraries$LOCATION<-sapply(libraries$LOCATION, clean_location)
+libraries <-separate(libraries, LOCATION, c("lat","long"),",")
+libraries$lat <- as.numeric(libraries$lat)
+libraries$long <- as.numeric(libraries$long)
+
+glimpse(libraries)
+```
+
+addPolygons(color = "#444444", weight = 1, smoothFactor = 0.5,
+    opacity = 1.0, fillOpacity = 0.5,
+    fillColor = ~colorQuantile("YlOrRd", ALAND)(ALAND),
+    highlightOptions = highlightOptions(color = "white", weight = 2,
+      bringToFront = TRUE))
+
+```{r map}
+#Chicago Lat Long 41.881832, -87.623177.
+m <- leaflet() %>%
+  addTiles() %>%
+  #addProviderTiles(providers$OpenMapSurfer.Grayscale) %>%
+  setView(lng =  -87.623177, 
+          lat =41.881832,
+          zoom = 10) %>%
+  addMarkers(~long,
+             ~lat,
+             popup = ~NAME,
+             data = libraries,
+             group = "Libraries")%>%
+  addPolygons(data = community_areas, 
+            weight = 1,
+            fillColor = "green",
+            fillOpacity = .25,
+            label = ~community,
+            group = "Community Areas") %>%
+  addPolygons(data = census_tracts,
+              group = 'Census Tracts',
+              label = ~geoid10,
+              fillColor = "red",
+              fillOpacity = .25,
+              weight = 1)%>%
+  addLayersControl(overlayGroups = c("Community Areas",
+                                     "Libraries",
+                                     "Census Tracts"))
+m
+```
+
+sprintf("<strong><u> %s: </strong></u>: %s",
+                          parent_name,
+                          lettergrade)
+
+```{r}
+
+
+
+
+label <- sprintf("<strong>%s</strong>:
+                  <br> %s <br>--------
+                  <br> %s 
+                  <br> %s 
+                  <br> %s, %s
+                  <br>--------
+                  <br> %s 
+                  <br> 
+                  <a href = %s>website<a>",
+                 libraries$NAME,
+                 libraries$`HOURS OF OPERATION`,
+                 libraries$ADDRESS,
+                 libraries$CITY,
+                 libraries$STATE,
+                 libraries$ZIP,
+                 libraries$PHONE,
+                 libraries$WEBSITE)
+
+?sprintf
+
+m2 <- leaflet() %>%
+  addTiles() %>%
+  #addProviderTiles(providers$OpenMapSurfer.Grayscale) %>%
+  setView(lng =  -87.623177, 
+          lat =41.881832,
+          zoom = 10) %>%
+  addMarkers(~long,
+             ~lat,
+             popup = label,
+             data = libraries,
+             group = "Libraries")%>%
+  addPolygons(data = community_areas, 
+            weight = 1,
+            fillColor = "green",
+            fillOpacity = .25,
+            label = ~community,
+            group = "Community Areas") %>%
+  addPolygons(data = census_tracts,
+              group = 'Census Tracts',
+              label = ~geoid10,
+              fillColor = "red",
+              fillOpacity = .25,
+              weight = 1)%>%
+  addLayersControl(overlayGroups = c("Community Areas",
+                                     "Libraries",
+                                     "Census Tracts"))
+m2
+
+```
+

@@ -1,0 +1,104 @@
+---
+title: "R Bar Winter 2018 Week 3"
+output:
+  html_notebook: default
+  pdf_document: default
+  word_document: default
+---
+
+
+$y = \beta_{0}+\beta_{1}x_{1}$
+
+```{r}
+library(tidyverse)
+library(datasets)
+library(ggfortify)
+#install.packages("ggfortify")
+
+data("iris")
+
+#str(iris)
+#head(iris)
+#tail(iris)
+glimpse(iris)
+
+#relationship between petal.length and petal.width
+#outcome: Petal.Length
+#Input: Petal.Width
+model <- lm(Petal.Length ~ Petal.Width, data = iris)
+
+multivar_model <- lm(Petal.Length ~ Petal.Width + Sepal.Length, data = iris)
+
+summary(multivar_model)
+
+coefficients(model)
+
+residuals<- residuals(model)
+
+fitted <- fitted(model)
+
+iris2 <- iris
+
+iris2$residuals <- residuals
+
+iris2$fitted <- fitted
+
+glimpse(iris2)
+
+View(iris2)
+
+write.csv(iris2, "dataframe.csv")
+
+
+require()
+```
+
+
+```{r}
+##ggplot
+
+plot(Petal.Length ~ Petal.Width, data = iris)
+abline(1.083558, 2.229940 )
+abline(model)
+
+
+```
+```{r}
+
+ggplot( data=iris, aes(x =Petal.Width, 
+                       y = Petal.Length)) +
+  geom_point(aes(color = Sepal.Length)) +
+  geom_smooth(method = "lm", se = FALSE) +
+  annotate("R^2 = .9271", y = 2, x = 1.75, label="R2") +
+  theme_bw()
+  
+#r2  = 0.9271
+geom_smooth(method = "lm", se = FALSE)+
+  annotate("text", y = 2.25, x = 7, label = "Test")+
+  ggtitle("Relationship Between Length and Width of Irises")+
+  xlab("Length") +
+  ylab("Width")+
+  theme_classic()
+
+summary(model)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

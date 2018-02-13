@@ -1,0 +1,45 @@
+---
+title: "R Bar Winter 2018 Week 3"
+output: html_notebook
+---
+
+```{r, include=FALSE}
+library(tidyverse)
+library(ggfortify)
+library(datasets)
+
+data("iris")
+
+iris
+
+model <- lm(Sepal.Length ~ Sepal.Width, data = iris)
+
+#summary(model)
+fitted_vals <- fitted(model)
+
+residual_vals <- residuals(model)
+
+iris2 <- iris
+
+iris2$Sepal.Length.Fitted  <- fitted_vals
+
+iris2$Sepal.Length.Residuals <-residual_vals
+
+fitted()
+```
+
+```{r}
+plot(Sepal.Length ~ Sepal.Width, data = iris)
+abline(6.5262226, -0.2233611)
+abline(lm(Sepal.Length ~ Sepal.Width, data = iris))
+
+```
+```{r}
+ggplot(iris,aes(x = Sepal.Length, y = Sepal.Width))+geom_point(aes(color = Species))+ 
+  geom_smooth(method = "lm", se = FALSE)+
+  #annotate("R2 = .67", y = 2.25, x = 7, label = "R2")+
+  ggtitle("Relationship Between Length and Width of Irises")+
+  xlab("Length") +
+  ylab("Width")+
+  theme_classic()
+```

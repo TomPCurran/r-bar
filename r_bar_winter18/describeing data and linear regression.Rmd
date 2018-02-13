@@ -1,0 +1,15 @@
+---
+title: "Winter 2018 Week 2: Decribing data sets and Linear Regression"
+output: html_notebook
+---
+```{r, include=FALSE}
+library(learnr)
+library(tidyverse)
+
+df <- read_csv('R Bar Height and Weight - Sheet1.csv')
+
+df$brith_month <- sample(1:12, size = nrow(df), replace = TRUE)
+
+
+```
+
